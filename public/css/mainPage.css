@@ -1,0 +1,200 @@
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('/fonts/ClearSans-Regular.woff2') format('woff2'),
+         url('/fonts/ClearSans-Regular.woff') format('woff'),
+         url('/fonts/ClearSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Clear Sans', sans-serif;
+    background-color: #4C4C4C;
+
+}
+
+#backphoto {
+    background-size: cover;
+    background-image: url(../img/MInterior.png);
+    height: 690px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Стиль для заголовка */
+#MajorName {
+    font-size: 70px;
+    color: #fcfcfc;
+    margin: 0;
+    padding: 0;
+}
+
+/* Адаптація для малих екранів */
+@media (max-width: 1200px) {
+    #backphoto {
+        height: 500px; /* Зменшуємо висоту для середніх екранів */
+    }
+
+    #MajorName {
+        font-size: 50px; /* Зменшуємо розмір тексту */
+        padding-top: 15%; /* Зміщуємо текст */
+    }
+}
+
+@media (max-width: 768px) {
+    #backphoto {
+        height: 400px; /* Зменшуємо висоту для планшетів */
+    }
+
+    #MajorName {
+        font-size: 40px; /* Ще менший розмір тексту */
+        padding-top: 10%;
+    }
+}
+
+@media (max-width: 480px) {
+    #backphoto {
+        height: 300px; /* Зменшуємо висоту для смартфонів */
+    }
+
+    #MajorName {
+        font-size: 30px; /* Зменшуємо розмір тексту для маленьких екранів */
+        padding-top: 5%;
+    }
+}
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки, рівної ширини */
+    gap: 20px; /* Проміжок між елементами */
+}
+
+.gallery-item {
+    text-align: center; /* Центрування тексту під картинкою */
+}
+
+.gallery-item img {
+    border-radius: 20px;
+    width: 350px; /* Фіксована ширина */
+    height: 340px; /* Фіксована висота */
+    object-fit: cover; /* Забезпечує коректне відображення зображення в межах заданого розміру */
+}
+
+.gallery-item p {
+    color: #ffffff;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+@media (max-width: 1200px) {
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки при ширині екрану менше 1200px */
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(1, 1fr); /* 1 колонка при ширині екрану менше 768px */
+    }
+}
+
+
+
+
+#OurPoslugi{
+    text-align: center;
+    font-size: 40px;
+    color: #ffffff;
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+
+#AboutUsText{
+    text-align: center;
+    color: white;
+    margin-top: 80px;
+    font-size: 40px;
+}
+h1{
+    color: #E0FF22;
+}
+.aboutText{
+    text-align: left;
+    font-size: 25px;
+    color: #D9D9D9;
+}
+
+
+#infoDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Розташування блоків по центру */
+    flex-wrap: wrap; /* Дозволяє переносити блоки на новий ряд при необхідності */
+    padding: 20px;
+    margin-top: 50px;
+}
+
+#infoDiv {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-image: url(../img/mainTextBackDiv.png);
+    background-size: cover;
+    
+}
+
+.about_text {
+
+    text-align: center;
+    font-size: 36px;
+    width: 100%; /* Заголовок займає всю ширину контейнера */
+    margin-bottom: 40px; /* Відступ від заголовка до блоків з текстом */
+}
+
+.text_container {
+    background-color: rgb(110, 110, 110,68%) ;
+    flex: 1;
+    max-width: 258px;
+    font-size: 20px;
+    margin: 60px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    color: white;
+}
+
+/* Адаптація для середніх екранів (планшети) */
+@media (max-width: 768px) {
+    #infoDiv {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .text {
+        max-width: 90%;
+    }
+
+    .about_text {
+        font-size: 32px;
+    }
+}
+
+/* Адаптація для маленьких екранів (мобільні пристрої) */
+@media (max-width: 480px) {
+    .text {
+        max-width: 100%;
+        margin: 10px 0;
+    }
+
+    .about_text {
+        font-size: 28px;
+    }
+}

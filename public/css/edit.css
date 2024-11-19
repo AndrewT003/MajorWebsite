@@ -1,0 +1,38 @@
+.form-container{
+    justify-content: center;
+    background-color: #6f6f6f;
+    margin-left: 20%;
+    margin-right: 20%;
+    height: 180px;
+    padding-top: 20px;
+    margin-top: 30px;
+    padding-left: 20px;
+    border-radius: 20px;
+}
+h2{
+    text-align: center;
+    color: white;
+}
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('/fonts/ClearSans-Regular.woff2') format('woff2'),
+         url('/fonts/ClearSans-Regular.woff') format('woff'),
+         url('/fonts/ClearSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Clear Sans', sans-serif;
+    background-color: #4C4C4C;
+}
+button{
+  height: 40px;
+  border-radius: 10px;
+}
+select{
+    color: #4C4C4C;
+}

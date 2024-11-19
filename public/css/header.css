@@ -1,0 +1,45 @@
+.headercontent{
+    flex-direction: row;
+    margin-left: 30px;
+    margin-top: 40px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    
+}
+header{
+    background-color: #e0e3e3;
+    height: 100px;
+    display: flex;
+}
+#MajorLogoHeader{
+    margin-left: 20px;
+    margin-right: 7%;
+}
+#mainLink{
+    margin-left: 20%;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: 520px;
+    }
+    .headercontent{
+        margin-left: 0;
+    }
+    #mainLink {
+        margin-top: 15px;
+        margin-left: 0;
+    }
+
+    header a {
+        margin: 10px 0; /* Вертикальний відступ між посиланнями */
+    }
+
+    header img {
+        margin-bottom: 15px;
+    }
+}

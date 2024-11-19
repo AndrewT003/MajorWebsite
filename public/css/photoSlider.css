@@ -1,0 +1,56 @@
+* {
+    margin: 0; /* Скидання зовнішнього відступу */
+    padding: 0; /* Скидання внутрішнього відступу */
+    box-sizing: border-box; /* Коригує розміри елементів */
+}
+
+#slider {
+    background-image: url(../img/blackBackphone.png);
+    background-size: cover;
+    text-align: center; /* Центрування заголовка та фото */
+    padding: 20px; /* Відступи всередині блоку */
+    border-radius: 8px; /* Закруглені краї */
+    margin: 20px auto; /* Центрування блоку на сторінці */
+}
+
+#slider h3 {
+    font-size: 24px; /* Розмір шрифту для заголовка */
+    margin-bottom: 30px; /* Відступ знизу */
+    margin-top: 30px;
+    color: white;
+}
+
+#photoGallery {
+    display: grid; /* Використовуємо CSS Grid для організації фото */
+    grid-template-columns: repeat(5, 1fr); /* 5 колонок однакової ширини */
+    gap: 15px; /* Відстань між фото */
+}
+
+#photoGallery img {
+    width: 100%; /* Ширина зображення не перевищує ширини контейнера */
+    height: 200px; /* Встановлюємо фіксовану висоту для однакового вигляду */
+    object-fit: cover; /* Заповнює контейнер, зберігаючи пропорції зображення */
+    border-radius: 5px; /* Закруглені краї для зображень */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Легка тінь для зображень */
+}
+
+/* Стилі для планшетів */
+@media (max-width: 1024px) {
+    #photoGallery {
+        grid-template-columns: repeat(3, 1fr); /* 3 колонки на планшетах */
+    }
+}
+
+/* Стилі для великих телефонів */
+@media (max-width: 768px) {
+    #photoGallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки на великих телефонах */
+    }
+}
+
+/* Стилі для малих телефонів */
+@media (max-width: 480px) {
+    #photoGallery {
+        grid-template-columns: 1fr; /* 1 колонка на малих телефонах */
+    }
+}

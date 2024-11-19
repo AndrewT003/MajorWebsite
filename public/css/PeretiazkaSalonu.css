@@ -1,0 +1,83 @@
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('/fonts/ClearSans-Regular.woff2') format('woff2'),
+         url('/fonts/ClearSans-Regular.woff') format('woff'),
+         url('/fonts/ClearSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Clear Sans', sans-serif;
+    background-color: #4C4C4C;
+
+}
+
+#backphoto {
+    background-size: cover;
+    background-image: url(../img/MansoryBlure.png);
+    height: 690px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+#DivTitle{
+    font-size: 70px;
+    color: #fcfcfc;
+    margin: 0;
+    padding: 0;
+}
+/* Адаптація для малих екранів */
+@media (max-width: 1200px) {
+    #backphoto {
+        height: 500px; /* Зменшуємо висоту для середніх екранів */
+    }
+
+    #DivTitle {
+        font-size: 50px; /* Зменшуємо розмір тексту */
+        padding-top: 15%; /* Зміщуємо текст */
+    }
+}
+
+@media (max-width: 768px) {
+    #backphoto {
+        height: 400px; /* Зменшуємо висоту для планшетів */
+    }
+
+    #DivTitle {
+        font-size: 40px; /* Ще менший розмір тексту */
+        padding-top: 10%;
+    }
+}
+
+@media (max-width: 480px) {
+    #backphoto {
+        height: 300px; /* Зменшуємо висоту для смартфонів */
+    }
+
+    #DivTitle {
+        font-size: 30px; /* Зменшуємо розмір тексту для маленьких екранів */
+        padding-top: 5%;
+    }
+}
+
+#textDiv{
+    margin-top: 40px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 20px;
+}
+p{
+    text-align: justify;
+    color: white;
+}
+h3{
+    text-align: center;
+    color: white;
+}
