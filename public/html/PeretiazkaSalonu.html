@@ -52,7 +52,7 @@
      </div>
 
      <div id="slider">
-        <h3>Наші роботи</h3>
+        <h3>НАШІ РОБОТИ</h3>
         <div id="photoGallery"></div> <!-- Сюди будуть додаватися фото -->
     </div>
     
@@ -71,35 +71,11 @@
         </div>
      </footer>
 
-     <script>
-        // Завантаження фото для категорії "peretiazka"
-        async function loadPhotos() {
-            const category = 'peretiazkaSalonu'; // Вкажіть категорію
-            try {
-                const response = await fetch(`/api/photos/${category}`);
-                const photos = await response.json();
-    
-                const photoGallery = document.getElementById('photoGallery'); // Отримуємо контейнер для фото
-                photoGallery.innerHTML = ''; // Очищаємо галерею перед додаванням нових фото
-                
-                photos.forEach(photo => {
-                    const img = document.createElement('img');
-                    // Використовуємо шлях до папки 'uploads' для відображення зображень
-                    img.src = `/uploads/${photo.path.split('\\').pop()}`; // Витягуємо ім'я файлу з повного шляху
-                    img.alt = photo.hash || 'Фото'; // Встановлюємо альтернативний текст
-                    img.style.maxWidth = '100%'; // Обмежуємо максимальну ширину
-    
-                    // Додаємо зображення до контейнера фото
-                    photoGallery.appendChild(img);
-                });
-            } catch (error) {
-                console.error('Помилка завантаження фото:', error);
-            }
-        }
-    
-        // Викликаємо функцію завантаження фото при завантаженні сторінки
-        window.onload = loadPhotos;
+     <script type="module">
+        import { loadPhotos } from '/js/fotos.js';
+        window.onload = () => loadPhotos('peretiazkaSalonu');
     </script>
+    
     
 </body>
 </html>

@@ -6,19 +6,7 @@ const { ObjectId } = require('mongodb');
 const crypto = require('crypto');
 const fs = require('fs');
 
-// Налаштування для multer для зберігання фото
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const uploadPath = path.join(__dirname, '../uploads'); // Директорія для зберігання фото
-        if (!fs.existsSync(uploadPath)) {
-            fs.mkdirSync(uploadPath); // Створення директорії, якщо вона не існує
-        }
-        cb(null, uploadPath);
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + '-' + file.originalname); // Унікальна назва файлу
-    }
-});
+const storage = multer.memoryStorage(); // Зберігає файл у пам'яті
 const upload = multer({ storage });
 
 // Функція для обчислення хешу файлу
@@ -98,47 +86,42 @@ async function Admin(app) {
         res.sendFile(path.join(__dirname, '../public/html', 'edit.html'));
     });
 
-    // Маршрут для додавання фото
     app.post('/admin/edit/add-photo', upload.single('photo'), async (req, res) => {
         const { category } = req.body;
-        const photoPath = req.file ? req.file.path : null;
-
-        if (!photoPath) {
+        const photoBuffer = req.file ? req.file.buffer : null;
+    
+        if (!photoBuffer) {
             return res.status(400).send(`<script>alert('Помилка завантаження фото'); window.location.href='/admin';</script>`);
         }
-
+    
         try {
             // Обчислення хешу файлу
-            const fileHash = await calculateFileHash(photoPath);
-
+            const fileHash = crypto.createHash('sha256').update(photoBuffer).digest('hex');
+    
             // Перевірка наявності колекції категорії, створення якщо її немає
             const collectionExists = await db.listCollections({ name: category }).hasNext();
             if (!collectionExists) {
                 await db.createCollection(category);
                 console.log(`Колекцію ${category} створено`);
             }
-
+    
             const collection = db.collection(category);
-
+    
             // Перевірка наявності дублікату
             const duplicate = await collection.findOne({ hash: fileHash });
             if (duplicate) {
-                // Видалення файлу, оскільки дублікат уже є в базі
-                fs.unlink(photoPath, (err) => {
-                    if (err) console.error('Помилка видалення файлу дублікату:', err);
-                });
                 return res.status(409).send(`<script>alert('Таке фото існує'); window.location.href='/admin';</script>`);
             }
-
-            // Додаємо запис про фото з унікальним ID та хешем
+    
+            // Додаємо запис про фото з унікальним ID, хешем та буфером
             const photoData = {
                 _id: new ObjectId(),
-                path: photoPath,
+                buffer: photoBuffer,
                 hash: fileHash,
                 uploadDate: new Date()
             };
             await collection.insertOne(photoData);
-
+    
             res.status(200).send(`<script>alert('Фото додано успішно'); window.location.href='/admin';</script>`);
         } catch (error) {
             console.error('Помилка при додаванні фото:', error);
@@ -146,40 +129,32 @@ async function Admin(app) {
         }
     });
 
-    // Маршрут для видалення фото
-  // Маршрут для видалення фото
-  app.post('/admin/edit/delete-photo', async (req, res) => {
-    const { category, photoId } = req.body;
-
-    // Перевірка наявності значень category і photoId
-    if (!category || !photoId) {
-        return res.status(400).send(`<script>alert('Категорія та ID фото повинні бути вказані'); window.location.href='/admin';</script>`);
-    }
-
-    try {
-        const collection = db.collection(category);
-        const photo = await collection.findOne({ _id: new ObjectId(photoId) });
-
-        if (!photo) {
-            return res.status(404).send(`<script>alert('Фото не знайдено'); window.location.href='/admin';</script>`);
+    app.post('/admin/edit/delete-photo', async (req, res) => {
+        const { category, photoId } = req.body;
+    
+        // Перевірка наявності значень category і photoId
+        if (!category || !photoId) {
+            return res.status(400).send(`<script>alert('Категорія та ID фото повинні бути вказані'); window.location.href='/admin';</script>`);
         }
-
-        // Видаляємо запис із колекції
-        await collection.deleteOne({ _id: new ObjectId(photoId) });
-
-        // Видаляємо файл із папки
-        fs.unlink(photo.path, (err) => {
-            if (err && err.code !== 'ENOENT') { // ENOENT означає, що файл не знайдено
-                console.error('Помилка видалення файлу:', err);
-                return res.status(500).send(`<script>alert('Помилка видалення файлу'); window.location.href='/admin';</script>`);
+    
+        try {
+            const collection = db.collection(category);
+            const photo = await collection.findOne({ _id: new ObjectId(photoId) });
+    
+            if (!photo) {
+                return res.status(404).send(`<script>alert('Фото не знайдено'); window.location.href='/admin';</script>`);
             }
-            res.status(200).send('Фото видалено успішно');
-        });
-    } catch (error) {
-        console.error('Помилка при видаленні фото:', error);
-        res.status(500).send(`<script>alert('Помилка серверу'); window.location.href='/admin';</script>`);
-    }
-});
+    
+            // Видаляємо запис із колекції MongoDB
+            await collection.deleteOne({ _id: new ObjectId(photoId) });
+    
+            res.status(200).send(`<script>alert('Фото видалено успішно'); window.location.href='/admin';</script>`);
+        } catch (error) {
+            console.error('Помилка при видаленні фото:', error);
+            res.status(500).send(`<script>alert('Помилка серверу'); window.location.href='/admin';</script>`);
+        }
+    });
+    
 
 
 }

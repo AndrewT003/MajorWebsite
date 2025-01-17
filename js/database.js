@@ -1,21 +1,23 @@
 const { MongoClient } = require('mongodb');
 
-// URL до локальної MongoDB
-const url = 'mongodb://localhost:27017';
+const url = 'mongodb+srv://AndrewT:0662869941ta@courseworkdb.k45ksmc.mongodb.net/';
 const dbName = 'MajorSite';
 
+let dbInstance = null;
+
 async function connectToDatabase() {
+    if (dbInstance) return dbInstance;
+
     const client = new MongoClient(url);
 
     try {
         await client.connect();
-        console.log('Успішне підключення до локальної MongoDB');
-
-        const db = client.db(dbName);
-        return db; // Повертає об'єкт бази даних
+        console.log('Успішне підключення до MongoDB');
+        dbInstance = client.db(dbName);
+        return dbInstance;
     } catch (error) {
         console.error('Помилка підключення до MongoDB:', error);
-        return null; // Повертає null у разі помилки
+        throw error;
     }
 }
 
