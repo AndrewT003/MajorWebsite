@@ -32,7 +32,7 @@ async function Admin(app) {
 
     // Маршрут для реєстрації
     app.get('/admin/register', (req, res) => {
-        res.sendFile(path.join(__dirname, '../public/html', 'admin.html'));
+        res.render('admin'); // Без розширення файлу
     });
 
     app.post('/admin/register', async (req, res) => {
@@ -59,7 +59,7 @@ async function Admin(app) {
 
     // Маршрут для авторизації
     app.get('/admin', (req, res) => {
-        res.sendFile(path.join(__dirname, '../public/html', 'admin.html'));
+        res.render('admin'); // Без розширення файлу
     });
 
     app.post('/admin', async (req, res) => {
@@ -83,58 +83,82 @@ async function Admin(app) {
         if (!req.session.isAuthenticated) {
             return res.redirect('/admin');
         }
-        res.sendFile(path.join(__dirname, '../public/html', 'edit.html'));
+        res.render('edit'); // Без розширення файлу
     });
 
+    // Маршрут для отримання фото по категорії
+    app.get('/admin/edit/photos', async (req, res) => {
+        const { category } = req.query;
+
+        if (!category) {
+            return res.status(400).send({ success: false, message: 'Категорія не вказана' });
+        }
+
+        try {
+            const collection = db.collection(category);
+            const photos = await collection.find().toArray();
+            res.json(photos);
+        } catch (error) {
+            console.error('Помилка при отриманні фото:', error);
+            res.status(500).send({ success: false, message: 'Помилка сервера' });
+        }
+    });
+
+    // Маршрут для додавання фото
     app.post('/admin/edit/add-photo', upload.single('photo'), async (req, res) => {
         const { category } = req.body;
         const photoBuffer = req.file ? req.file.buffer : null;
     
+        if (!req.session.isAuthenticated) {
+            return res.status(401).send(`<script>alert('Авторизуйтеся для доступу'); window.location.href='/admin';</script>`);
+        }
+    
         if (!photoBuffer) {
-            return res.status(400).send(`<script>alert('Помилка завантаження фото'); window.location.href='/admin';</script>`);
+            return res.status(400).send(`<script>alert('Помилка завантаження фото'); window.location.href='/admin/edit';</script>`);
         }
     
         try {
-            // Обчислення хешу файлу
             const fileHash = crypto.createHash('sha256').update(photoBuffer).digest('hex');
-    
-            // Перевірка наявності колекції категорії, створення якщо її немає
             const collectionExists = await db.listCollections({ name: category }).hasNext();
+    
             if (!collectionExists) {
                 await db.createCollection(category);
                 console.log(`Колекцію ${category} створено`);
             }
     
             const collection = db.collection(category);
-    
-            // Перевірка наявності дублікату
             const duplicate = await collection.findOne({ hash: fileHash });
+    
             if (duplicate) {
-                return res.status(409).send(`<script>alert('Таке фото існує'); window.location.href='/admin';</script>`);
+                return res.status(409).send(`<script>alert('Таке фото вже існує'); window.location.href='/admin/edit';</script>`);
             }
     
-            // Додаємо запис про фото з унікальним ID, хешем та буфером
             const photoData = {
                 _id: new ObjectId(),
                 buffer: photoBuffer,
                 hash: fileHash,
-                uploadDate: new Date()
+                uploadDate: new Date(),
             };
+    
             await collection.insertOne(photoData);
     
-            res.status(200).send(`<script>alert('Фото додано успішно'); window.location.href='/admin';</script>`);
+            res.status(200).send(`<script>alert('Фото додано успішно'); window.location.href='/admin/edit';</script>`);
         } catch (error) {
             console.error('Помилка при додаванні фото:', error);
-            res.status(500).send(`<script>alert('Помилка сервера'); window.location.href='/admin';</script>`);
+            res.status(500).send(`<script>alert('Помилка сервера'); window.location.href='/admin/edit';</script>`);
         }
     });
 
+    // Маршрут для видалення фото
     app.post('/admin/edit/delete-photo', async (req, res) => {
         const { category, photoId } = req.body;
     
-        // Перевірка наявності значень category і photoId
+        if (!req.session.isAuthenticated) {
+            return res.status(401).send(`<script>alert('Авторизуйтеся для доступу'); window.location.href='/admin';</script>`);
+        }
+    
         if (!category || !photoId) {
-            return res.status(400).send(`<script>alert('Категорія та ID фото повинні бути вказані'); window.location.href='/admin';</script>`);
+            return res.status(400).send(`<script>alert('Категорія та ID фото повинні бути вказані'); window.location.href='/admin/edit';</script>`);
         }
     
         try {
@@ -142,21 +166,17 @@ async function Admin(app) {
             const photo = await collection.findOne({ _id: new ObjectId(photoId) });
     
             if (!photo) {
-                return res.status(404).send(`<script>alert('Фото не знайдено'); window.location.href='/admin';</script>`);
+                return res.status(404).send(`<script>alert('Фото не знайдено'); window.location.href='/admin/edit';</script>`);
             }
     
-            // Видаляємо запис із колекції MongoDB
             await collection.deleteOne({ _id: new ObjectId(photoId) });
     
-            res.status(200).send(`<script>alert('Фото видалено успішно'); window.location.href='/admin';</script>`);
+            res.status(200).send(`<script>alert('Фото видалено успішно'); window.location.href='/admin/edit';</script>`);
         } catch (error) {
             console.error('Помилка при видаленні фото:', error);
-            res.status(500).send(`<script>alert('Помилка серверу'); window.location.href='/admin';</script>`);
+            res.status(500).send(`<script>alert('Помилка сервера'); window.location.href='/admin/edit';</script>`);
         }
     });
-    
-
-
 }
 
 module.exports = Admin;

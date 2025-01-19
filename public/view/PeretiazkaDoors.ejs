@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutuMajor</title>
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/PeretiazkaDoor.css">
+    <link rel="stylesheet" href="/css/photoSlider.css">
+    <link rel="stylesheet" href="/css/header.css">
+
+</head>
+<body>
+    <header>
+        <%- include('header') %>
+    </header>
+    
+     <div id="backphoto">
+        <p id="DivTitle">ПЕРЕТЯЖКА ДВЕРНИХ КАРТ</p>
+     </div>
+
+     <div id="textDiv">
+        <h3>ПЕРЕТЯЖКА ДВЕРНИХ КАРТ </h2>
+            <br>
+         <p>  Перетяжка дверних карт – надійний спосіб повернути дверям автомобіля 
+            презентабельний зовнішній вигляд і підкреслити індивідуальність салону.
+             Перетяжка дверних карт може виконуватись як в комплексі з перетяжкою салону , так і окремо.
+             Це досить кропітка робота, як і все, що ми робимо в нашому автоательє. Потребує певних навичок, уваги, професіоналізму.
+             Який матеріал підходить для перетяжки дверних карт?
+             Для перетяжки дверних карт можна використовувати ті ж матеріали, що і для внутрішньої оббивки.
+             
+            </p>
+                <br>
+                <br>
+            <h3>Це може бути:</h3>
+                <br>
+            <p id="listOptions">
+                •	Натуральна шкіра
+                <br>
+                •	Екошкіра
+                <br>
+                •	Автотканина
+                <br>
+                •	Алькантара
+                <br>
+                •	Вініл
+                <br>
+                •	Та інші оригінальні автомобільні тканини
+            </p>
+                <br>
+        
+            <p>Обшивка дверних карт повинна відповідати загальному стилю автомобіля,
+                 бути міцною і стійкою до механічних пошкоджень. Ми завжди враховуємо всі 
+                 побажання наших замовників.</p>
+        
+        
+     </div>
+
+     <div id="slider">
+        <h3>НАШІ РОБОТИ</h3>
+        <div id="photoGallery"></div> <!-- Сюди будуть додаватися фото -->
+    </div>
+    
+
+    <footer>
+        <%- include('footer') %>
+    </footer>
+
+    <script src="/js/photoloader.js"></script>
+    <script>
+         window.onload = function() {
+         const category = 'DoorKarts'; // Категорія може бути динамічною
+        loadPhotos(category);
+         };
+    </script>
+
+</body>
+</html>

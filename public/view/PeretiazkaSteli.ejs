@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutuMajor</title>
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/PeretiazkaSteli.css">
+    <link rel="stylesheet" href="/css/photoSlider.css">
+    <link rel="stylesheet" href="/css/header.css">
+
+</head>
+<body>
+    <header>
+        <%- include('header') %>
+    </header>
+
+     <div id="backphoto">
+        <p id="DivTitle">ПЕРЕТЯЖКА СТЕЛІ, СТІЙОК, КОЗИРКІВ</p>
+     </div>
+
+     <div id="textDiv">
+        <h3>ПЕРЕТЯЖКА СТЕЛІ, СТІЙОК, КОЗИРКІВ </h2>
+            <br>
+         <p>    Активна експлуатація автомобіля так чи інакше позначається на зовнішньому вигляді інтер`єру салону.
+                І стеля, не виняток. Плями, механічні ушкодження у вигляді пропалів, подряпин, порізів , відпала тканина від часу 
+                експлуатації або після невдалої  хімчистки – з подібними проблемами стикався практично кожен власник авто. Довірте
+                рішення цієї проблеми професіоналам. У нас працюють кращі фахівці
+            <br>
+            <br>
+            <p>    
+                Перетяжка стелі може бути окремо або в комплексі з перетяжкою стійок, сонцезахисних козирків, ручок,
+                при  необхідності проводиться фарбування пластику салону під колір обшивки салону.
+            <br>
+                Тканини та шкіра, якими майстри обтягують елементи стелі автомобіля еластичні, приймають будь-яку форму,
+                деякі з них відштовхують воду, не горять та легко чистяться.
+            <br>
+            </p>
+            <br>
+            <p id="textDec">
+                Найбільш популярні:
+                <br>
+                •	алькантара,
+                <br>
+                •	екошкіра,
+                <br>
+                •	оригінальні автомобільні тканини (велюр, креп, флок, текстиль та інші)
+            </p>
+     </div>
+
+     <div id="slider">
+        <h3>НАШІ РОБОТИ</h3>
+        <div id="photoGallery"></div> 
+    </div>
+    
+
+    <footer>
+        <%- include('footer') %>
+    </footer>
+
+    <script src="/public/js/photoloader.js"></script>
+    <script>
+        window.onload = function() {
+        const category = 'peretiazkaSteli';
+        loadPhotos(category);
+        };
+    </script>  
+</body>
+</html>

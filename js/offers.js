@@ -35,7 +35,7 @@ function Peretiazka(app) {
     app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
     app.get('/peretiazka', (req, res) => {
-        res.sendFile(path.join(__dirname, '../public/html', 'PeretiazkaSalonu.html'));
+        res.render('PeretiazkaSalonu'); // Без розширення файлу
     });
     ShowPhoto(app);
 }
@@ -45,7 +45,7 @@ function PeretiazkaKerma(app) {
     app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
     app.get('/peretiazkaKerma', (req, res) => {
-        res.sendFile(path.join(__dirname, '../public/html', 'PeretiazkaKerma.html'));
+        res.render('PeretiazkaKerma'); // Без розширення файлу
     });
     ShowPhoto(app);
 }
@@ -55,16 +55,41 @@ function PeretiazkaSteli(app) {
     app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
     app.get('/peretiazkaSteli', (req, res) => {
-        res.sendFile(path.join(__dirname, '../public/html', 'PeretiazkaSteli.html'));
+        res.render('PeretiazkaSteli'); // Без розширення файлу
     });
     ShowPhoto(app);
 }
 
 function DoorCarts(app) {
     app.get('/peretiazkadoor', (req, res) => {
-        res.sendFile(path.join(__dirname, '../public/html', 'PeretiazkaDoors.html')); // Замініть на потрібний HTML-файл
+        res.render('PeretiazkaDoors'); // Без розширення файлу
     });
+    ShowPhoto(app);
+
 }
 
+function InstalChohli(app) {
+    app.get('/instalChohli', (req, res) => {
+        res.render('InstalChohli'); // Без розширення файлу
+    });
+    ShowPhoto(app);
 
-module.exports = { Peretiazka, DoorCarts, PeretiazkaKerma, PeretiazkaSteli };
+}
+
+function ChohliCreation(app) {
+    app.get('/chohliCreation', (req, res) => {
+        res.render('ChohliCreation'); // Без розширення файлу
+    });
+    ShowPhoto(app);
+
+}
+
+function TransmitionPeretiazka(app) {
+    app.get('/transmitionPeretiazka', (req, res) => {
+        res.render('PeretiazkaKPP'); // Без розширення файлу
+    });
+    ShowPhoto(app);
+
+}
+
+module.exports = { Peretiazka, DoorCarts, PeretiazkaKerma, PeretiazkaSteli,InstalChohli,ChohliCreation,TransmitionPeretiazka };

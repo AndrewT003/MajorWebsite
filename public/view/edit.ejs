@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/edit.css">
+</head>
+<body>
+    <header>
+        <%- include('header') %>
+    </header>
+    <main>
+        <section class="form-section">
+            <!-- Форма для додавання фото -->
+            <div class="form-container">
+                <h2>Додати нове фото</h2>
+                <form action="/admin/edit/add-photo" method="POST" enctype="multipart/form-data">
+                    <label for="category">Категорія:</label>
+                    <select id="category" name="category" required>
+                        <option value="peretiazkaSalonu">Перетяжка салону</option>
+                        <option value="peretiazkaWheel">Перетяжка Керма</option>
+                        <option value="peretiazkaSteli">Перетяжка Стелі</option>
+                        <option value="DoorKarts">Перетяжка дверних карт</option>
+                        <option value="InstalChohli">Встановлення авточохлів</option>
+                        <option value="IndividualChoxli">Виробництво модельних авточохлів</option>
+                        <option value="TransmitionPeretiazka">Перетяжка КПП</option>
+                        <option value="RepairSeats">Ремонт сидінь</option>
+                        <option value="UnderAnkle">Перетяжка підлокітників</option>
+                        <option value="MablesReapair">Перетяжка меблів</option>
+                        <option value="EVAkarpets">EVA килимки</option>
+                        <option value="AvtoNakidki">Автонакидки</option>
+                    </select>
+
+                    <label for="photo">Фото:</label>
+                    <input type="file" id="photo" name="photo" accept="image/*" required>
+
+                    <button type="submit">Додати фото</button>
+                </form>
+            </div>
+
+            <!-- Форма для видалення фото -->
+            <div class="form-container">
+                <h2>Видалити фото</h2>
+                <form action="/admin/edit/delete-photo" method="POST">
+                    <label for="category">Категорія:</label>
+                    <select id="category" name="category" required>
+                        <option value="peretiazkaSalonu">Перетяжка салону</option>
+                        <option value="peretiazkaWheel">Перетяжка Керма</option>
+                        <option value="peretiazkaSteli">Перетяжка Стелі</option>
+                        <option value="DoorKarts">Перетяжка дверних карт</option>
+                        <option value="InstalChohli">Встановлення авточохлів</option>
+                        <option value="IndividualChoxli">Виробництво модельних авточохлів</option>
+                        <option value="TransmitionPeretiazka">Перетяжка КПП</option>
+                        <option value="RepairSeats">Ремонт сидінь</option>
+                        <option value="UnderAnkle">Перетяжка підлокітників</option>
+                        <option value="MablesReapair">Перетяжка меблів</option>
+                        <option value="EVAkarpets">EVA килимки</option>
+                        <option value="AvtoNakidki">Автонакидки</option>
+                    </select>
+                    </select>
+                
+                    <label for="photoId">ID Фото для видалення:</label>
+                    <input type="text" id="photoId" name="photoId" placeholder="Введіть ID фото" required>
+                
+                    <button type="submit">Видалити фото</button>
+                </form>
+                
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -4,12 +4,23 @@ const path = require('path');
 
 
 const mainPage = require('./js/mainPage');
-const { Peretiazka, DoorCarts,PeretiazkaKerma,PeretiazkaSteli } = require('./js/offers');
+const { Peretiazka, DoorCarts,PeretiazkaKerma,PeretiazkaSteli,InstalChohli,ChohliCreation,TransmitionPeretiazka } = require('./js/offers');
 const Admin = require('./js/admin');
 const startApp = require('./js/database');
 
 const app = express();
 const PORT = 3000;
+
+
+
+// Вказуємо шлях до папки, де знаходяться шаблони
+app.set('views', path.join(__dirname, 'public', 'view'));  // Ваша папка views
+
+// Встановлюємо EJS як шаблонізатор
+app.set('view engine', 'ejs');
+
+app.use(express.static(path.join(__dirname, 'public')));  // Для доступу до статичних файлів
+
 
 // Middleware для обробки JSON і сесій
 app.use(express.json());
@@ -24,8 +35,6 @@ app.use(
     })
 );
 
-// Підключення статичних файлів
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'js')));
 
 
@@ -36,6 +45,9 @@ Admin(app);
 startApp();
 PeretiazkaKerma(app);
 PeretiazkaSteli(app);
+InstalChohli(app);
+ChohliCreation(app);
+TransmitionPeretiazka(app);
 
 
 app.listen(PORT, () => {
