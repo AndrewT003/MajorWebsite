@@ -4,7 +4,11 @@ const path = require('path');
 
 
 const mainPage = require('./js/mainPage');
-const { Peretiazka, DoorCarts,PeretiazkaKerma,PeretiazkaSteli,InstalChohli,ChohliCreation,TransmitionPeretiazka } = require('./js/offers');
+const { Peretiazka, DoorCarts,PeretiazkaKerma,PeretiazkaSteli,InstalChohli,ChohliCreation,TransmitionPeretiazka,RestavrationSeatsParalonu,
+    PeretiazkaPidlokitnikiv,RestavrationMebliv,EVACarpet,CreationNakidki
+ } = require('./js/offers');
+
+
 const Admin = require('./js/admin');
 const startApp = require('./js/database');
 
@@ -48,6 +52,13 @@ PeretiazkaSteli(app);
 InstalChohli(app);
 ChohliCreation(app);
 TransmitionPeretiazka(app);
+RestavrationSeatsParalonu(app);
+PeretiazkaPidlokitnikiv(app);
+RestavrationMebliv(app);
+EVACarpet(app);
+CreationNakidki(app);
+
+
 
 
 app.listen(PORT, () => {

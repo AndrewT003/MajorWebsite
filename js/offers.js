@@ -92,4 +92,45 @@ function TransmitionPeretiazka(app) {
 
 }
 
-module.exports = { Peretiazka, DoorCarts, PeretiazkaKerma, PeretiazkaSteli,InstalChohli,ChohliCreation,TransmitionPeretiazka };
+function RestavrationSeatsParalonu(app) {
+    app.get('/restavrationSeats', (req, res) => {
+        res.render('RestavrationSeats'); // Без розширення файлу
+    });
+    ShowPhoto(app);
+
+}
+
+function PeretiazkaPidlokitnikiv(app) {
+    app.get('/peretiazkaPidlokitnikiv', (req, res) => {
+        res.render('PeretiazkaPidlokitnikiv'); // Без розширення файлу
+    });
+    ShowPhoto(app);
+
+}
+
+function RestavrationMebliv(app) {
+    app.get('/restavrationMebliv', (req, res) => {
+        res.render('RestavrationMebliv'); // Без розширення файлу
+    });
+    ShowPhoto(app);
+
+}
+
+function EVACarpet(app) {
+    app.get('/EVAcarpet', (req, res) => {
+        res.render('EVACarpet'); // Без розширення файлу
+    });
+    ShowPhoto(app);
+
+}
+
+function CreationNakidki(app) {
+    app.get('/creationNakidki', (req, res) => {
+        res.render('CreationNakidki'); // Без розширення файлу
+    });
+    ShowPhoto(app);
+
+}
+
+module.exports = { Peretiazka, DoorCarts, PeretiazkaKerma, PeretiazkaSteli,InstalChohli,ChohliCreation,TransmitionPeretiazka,
+    RestavrationSeatsParalonu,PeretiazkaPidlokitnikiv,RestavrationMebliv,EVACarpet,CreationNakidki };

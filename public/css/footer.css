@@ -1,7 +1,6 @@
 footer {
-    padding-top: 30px;
     background-color: #e0e3e3;
-    height: 120px; /* Зробимо висоту адаптивною */
+    height: 140px; /* Зробимо висоту адаптивною */
     display: flex;
     justify-content: center; /* Центруємо елементи по горизонталі */
     align-items: center; /* Вирівнюємо елементи по вертикалі */
@@ -32,6 +31,7 @@ footer {
 /* Адаптивність для менших екранів */
 @media (max-width: 768px) {
     footer {
+        padding-top: 10px;
         flex-direction: column; /* Вертикальне розташування */
         height: auto; /* Динамічна висота */
         align-items: center; /* Центруємо елементи */

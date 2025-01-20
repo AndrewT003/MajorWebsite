@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutuMajor</title>
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/RestavraziaPidlokitnikiv.css">
+    <link rel="stylesheet" href="/css/photoSlider.css">
+    <link rel="stylesheet" href="/css/header.css">
+
+</head>
+<body>
+    <header>
+        <%- include('header') %>
+    </header>
+     <div id="backphoto">
+        <p id="DivTitle">ПЕРЕТЯЖКА ПІДЛОКІТНИКІВ</p>
+     </div>
+
+     <div id="textDiv">
+        <h3>ПЕРЕТЯЖКА ПІДЛОКІТНИКІВ</h2>
+            <br>
+         <p>
+                В процесі користування підлокотник автомобіля , як і весь салон, зношується.
+                Покриття втрачає свій зовнішній вигляд: з’являються потертості, тріщини. Саме
+                тому до нас звертаються з проханням зробити перетяжку цього та інших елементів салону. 
+                Який матеріал вибрати?
+            <br>
+            <br>
+         </p>
+               <h3>  Матеріал для перетяжки повинен бути міцним, стійким до забруднень і водночас
+                гармонійно вписатись в загальний стиль салону авто. Ми рекомендуємо</h3> 
+                
+            <br>
+         <p>
+                •	натуральну шкіру,
+                <br> 
+                •	оригінальний шкірзамінник,
+                <br> 
+                •	екошкіра, 
+                <br>
+                •	алькантара або їх поєднання. 
+
+         </p>
+            <br>
+            <br>
+          <p>
+            Перераховані матеріали є найбільш практичними і зносостійкими, а значить прослужать вам довгі роки.
+            <br>
+            Наші майстри виконають професійну перетяжку будь-якого елементу салону. 
+            </p>
+     </div>
+
+     <div id="slider">
+        <h3>НАШІ РОБОТИ</h3>
+        <div id="photoGallery"></div> <!-- Сюди будуть додаватися фото -->
+    </div>
+    
+
+    <footer>
+        <%- include('footer') %>
+    </footer>
+
+    <script src="/js/photoloader.js"></script>
+    <script>
+         window.onload = function() {
+         const category = 'InstalChohli'; // Категорія може бути динамічною
+        loadPhotos(category);
+         };
+    </script>
+
+</body>
+</html>

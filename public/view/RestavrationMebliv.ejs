@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutuMajor</title>
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/RestavrationMebliv.css">
+    <link rel="stylesheet" href="/css/photoSlider.css">
+    <link rel="stylesheet" href="/css/header.css">
+
+</head>
+<body>
+    <header>
+        <%- include('header') %>
+    </header>
+     <div id="backphoto">
+        <p id="DivTitle">ПЕРЕТЯЖКА МЕБЛІВ</p>
+     </div>
+
+     <div id="textDiv">
+        <h3>ПЕРЕТЯЖКА МЕБЛІВ</h2>
+            <br>
+        <h3>Ми допоможемо, якщо:</h3>
+
+        <p> 
+             •	ваші меблі були пошкоджені домашніми улюбленцями
+             <br>
+             •	крісло, диван або стільці втратили свій колишній вигляд
+             <br>
+             •	меблі було пошкоджено при переїзді
+             <br>
+             •	колір або стиль тканини не пасує до нового дизнайну оселі
+             <br>
+             •	улюблене крісло чи диван стали незручними і потребують ремонту
+            
+            <br>
+            <br>
+        </p>
+
+        <p>
+            В нашій майстерні ми робимо перетяжку диванів, крісел, стільців, офісних крісел, 
+            узголів'їв ліжок, кухонних куточків, диванних подушок
+        </p>
+        <br>
+        <br>
+        <h3>Матеріали , які ми використовуємо при роботі:</h3>
+            <br>
+            <br>
+        <p>
+            Натуральна шкіра, екошкіра, тканина антикіготь, рогожка та інші меблеві тканини від перевірених виробників.
+        </p>
+     </div>
+
+     <div id="slider">
+        <h3>НАШІ РОБОТИ</h3>
+        <div id="photoGallery"></div> <!-- Сюди будуть додаватися фото -->
+    </div>
+    
+
+    <footer>
+        <%- include('footer') %>
+    </footer>
+
+    <script src="/js/photoloader.js"></script>
+    <script>
+         window.onload = function() {
+         const category = 'InstalChohli'; // Категорія може бути динамічною
+        loadPhotos(category);
+         };
+    </script>
+
+</body>
+</html>
