@@ -1,0 +1,67 @@
+
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('/fonts/ClearSans-Regular.woff2') format('woff2'),
+         url('/fonts/ClearSans-Regular.woff') format('woff'),
+         url('/fonts/ClearSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'Clear Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #4C4C4C;
+}
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+table th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+table tr:hover {
+    background-color: #f1f1f1;
+}
+.back-link {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #007BFF;
+}
+.back-link:hover {
+    text-decoration: underline;
+}
+#downloadButton{
+    text-decoration: none;
+    color: rgb(63, 211, 14);
+    
+}
+#innerDiv{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}

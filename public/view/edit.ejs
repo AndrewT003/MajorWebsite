@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Редагування Фото</title>
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/edit.css">
 </head>
@@ -11,64 +11,115 @@
     <header>
         <%- include('header') %>
     </header>
+
+    <div class="linkPhoto">
+        <a id="linkPhotoEDIT" href="/admin/edit/price">РЕДАГУВАННЯ ЦІН</a>
+    </div>
+
+
     <main>
         <section class="form-section">
-            <!-- Форма для додавання фото -->
-            <div class="form-container">
-                <h2>Додати нове фото</h2>
-                <form action="/admin/edit/add-photo" method="POST" enctype="multipart/form-data">
-                    <label for="category">Категорія:</label>
-                    <select id="category" name="category" required>
-                        <option value="peretiazkaSalonu">Перетяжка салону</option>
-                        <option value="peretiazkaWheel">Перетяжка Керма</option>
-                        <option value="peretiazkaSteli">Перетяжка Стелі</option>
-                        <option value="DoorKarts">Перетяжка дверних карт</option>
-                        <option value="InstalChohli">Встановлення авточохлів</option>
-                        <option value="IndividualChoxli">Виробництво модельних авточохлів</option>
-                        <option value="TransmitionPeretiazka">Перетяжка КПП</option>
-                        <option value="RepairSeats">Ремонт сидінь</option>
-                        <option value="UnderAnkle">Перетяжка підлокітників</option>
-                        <option value="MablesReapair">Перетяжка меблів</option>
-                        <option value="EVAkarpets">EVA килимки</option>
-                        <option value="AvtoNakidki">Автонакидки</option>
-                    </select>
+            <h2>Додати нове фото</h2>
+            <form action="/admin/edit/add-photo" method="POST" enctype="multipart/form-data">
+                <label for="category">Категорія:</label>
+                <select id="category" name="category" required>
+                    <option value="peretiazkaSalonu">Перетяжка салону</option>
+                    <option value="peretiazkaWheel">Перетяжка Керма</option>
+                    <option value="peretiazkaSteli">Перетяжка Стелі</option>
+                    <option value="DoorKarts">Перетяжка дверних карт</option>
+                    <option value="InstalChohli">Встановлення авточохлів</option>
+                    <option value="IndividualChoxli">Виробництво модельних авточохлів</option>
+                    <option value="TransmitionPeretiazka">Перетяжка КПП</option>
+                    <option value="RepairSeats">Ремонт сидінь</option>
+                    <option value="UnderAnkle">Перетяжка підлокітників</option>
+                    <option value="MablesReapair">Перетяжка меблів</option>
+                    <option value="EVAkarpets">EVA килимки</option>
+                    <option value="AvtoNakidki">Автонакидки</option>
+                </select>
+                <label for="photo">Фото:</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+                <button type="submit">Додати фото</button>
+            </form>
+        </section>
 
-                    <label for="photo">Фото:</label>
-                    <input type="file" id="photo" name="photo" accept="image/*" required>
+        <section class="photo-section">
+            <h2>Список фото по категорії</h2>
+            <form id="categoryForm">
+                <label for="photoCategory">Оберіть категорію:</label>
+                <select id="photoCategory" name="category">
+                    <option value="peretiazkaSalonu">Перетяжка салону</option>
+                    <option value="peretiazkaWheel">Перетяжка Керма</option>
+                    <option value="peretiazkaSteli">Перетяжка Стелі</option>
+                    <option value="DoorKarts">Перетяжка дверних карт</option>
+                    <option value="InstalChohli">Встановлення авточохлів</option>
+                    <option value="IndividualChoxli">Виробництво модельних авточохлів</option>
+                    <option value="TransmitionPeretiazka">Перетяжка КПП</option>
+                    <option value="RepairSeats">Ремонт сидінь</option>
+                    <option value="UnderAnkle">Перетяжка підлокітників</option>
+                    <option value="MablesReapair">Перетяжка меблів</option>
+                    <option value="EVAkarpets">EVA килимки</option>
+                    <option value="AvtoNakidki">Автонакидки</option>
+                </select>
+                <button type="button" id="loadPhotos">Показати фото</button>
+            </form>
 
-                    <button type="submit">Додати фото</button>
-                </form>
-            </div>
-
-            <!-- Форма для видалення фото -->
-            <div class="form-container">
-                <h2>Видалити фото</h2>
-                <form action="/admin/edit/delete-photo" method="POST">
-                    <label for="category">Категорія:</label>
-                    <select id="category" name="category" required>
-                        <option value="peretiazkaSalonu">Перетяжка салону</option>
-                        <option value="peretiazkaWheel">Перетяжка Керма</option>
-                        <option value="peretiazkaSteli">Перетяжка Стелі</option>
-                        <option value="DoorKarts">Перетяжка дверних карт</option>
-                        <option value="InstalChohli">Встановлення авточохлів</option>
-                        <option value="IndividualChoxli">Виробництво модельних авточохлів</option>
-                        <option value="TransmitionPeretiazka">Перетяжка КПП</option>
-                        <option value="RepairSeats">Ремонт сидінь</option>
-                        <option value="UnderAnkle">Перетяжка підлокітників</option>
-                        <option value="MablesReapair">Перетяжка меблів</option>
-                        <option value="EVAkarpets">EVA килимки</option>
-                        <option value="AvtoNakidki">Автонакидки</option>
-                    </select>
-                    </select>
-                
-                    <label for="photoId">ID Фото для видалення:</label>
-                    <input type="text" id="photoId" name="photoId" placeholder="Введіть ID фото" required>
-                
-                    <button type="submit">Видалити фото</button>
-                </form>
-                
-            </div>
+            <div id="photosContainer"></div>
         </section>
     </main>
+
+    <script>
+        document.getElementById('loadPhotos').addEventListener('click', async () => {
+            const category = document.getElementById('photoCategory').value;
+        
+            try {
+                const response = await fetch(`/admin/edit/photos?category=${category}`);
+                if (!response.ok) throw new Error('Помилка при завантаженні фото');
+                const data = await response.json();
+        
+                const container = document.getElementById('photosContainer');
+                container.innerHTML = '';
+        
+                if (data.length > 0) {
+                    data.forEach(photo => {
+                        const photoDiv = document.createElement('div');
+                        photoDiv.className = 'photo-item';
+        
+                        const img = document.createElement('img');
+                        img.src = photo.base64Image;
+        
+                        const deleteButton = document.createElement('button');
+                        deleteButton.innerText = 'Видалити';
+                        deleteButton.addEventListener('click', async () => {
+                            try {
+                                const deleteResponse = await fetch('/admin/edit/delete-photo', {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({ category, photoId: photo._id }),
+                                });
+        
+                                if (!deleteResponse.ok) throw new Error('Помилка при видаленні фото');
+                                photoDiv.remove();
+                                alert('Фото видалено успішно');
+                            } catch (error) {
+                                console.error(error);
+                                alert('Не вдалося видалити фото');
+                            }
+                        });
+        
+                        photoDiv.appendChild(img);
+                        photoDiv.appendChild(deleteButton);
+                        container.appendChild(photoDiv);
+                    });
+                } else {
+                    container.innerHTML = '<p>Немає фото для цієї категорії</p>';
+                }
+            } catch (error) {
+                console.error(error);
+                alert('Сталася помилка під час завантаження фото');
+            }
+        });
+        
+    </script>
+    
 </body>
 </html>

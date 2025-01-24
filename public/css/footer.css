@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('/fonts/ClearSans-Regular.woff2') format('woff2'),
+         url('/fonts/ClearSans-Regular.woff') format('woff'),
+         url('/fonts/ClearSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 footer {
     background-color: #e0e3e3;
     height: 140px; /* Зробимо висоту адаптивною */

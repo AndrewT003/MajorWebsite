@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ціни на послуги</title>
+    <link rel="stylesheet" href="/css/prices.css">
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/footer.css">
+</head>
+<body>
+    <header>
+        <%- include('header') %>
+    </header>
+
+
+    <div class="container">
+        <h1>ЦІНИ НА ПОСЛУГИ</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Категорія</th>
+                    <th>Ціна (грн)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (prices.length > 0) { %>
+                    <% prices.forEach(price => { %>
+                        <tr>
+                            <td><%= price.category %></td>
+                            <td><%= price.price %></td>
+                        </tr>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="2" style="text-align: center;">Ціни відсутні</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <div id="innerDiv">
+            <a id="downloadButton" href="/prices/export/pdf" class="export-btn">ЗАВАНТАЖИТИ PDF</a>
+        </div>
+    </div>
+    
+    <footer>
+        <%- include('footer') %>
+    </footer>
+</body>
+</html>

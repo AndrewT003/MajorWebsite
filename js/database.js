@@ -12,7 +12,7 @@ async function connectToDatabase() {
 
     try {
         await client.connect();
-        console.log('Успішне підключення до MongoDB');
+        console.log('Основне Успішне підключення до MongoDB');
         dbInstance = client.db(dbName);
         return dbInstance;
     } catch (error) {

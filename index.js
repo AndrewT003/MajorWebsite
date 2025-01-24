@@ -9,6 +9,7 @@ const { Peretiazka, DoorCarts,PeretiazkaKerma,PeretiazkaSteli,InstalChohli,Chohl
  } = require('./js/offers');
 
 
+const EditAdmin = require('./js/admineditprices')
 const Admin = require('./js/admin');
 const startApp = require('./js/database');
 
@@ -57,6 +58,7 @@ PeretiazkaPidlokitnikiv(app);
 RestavrationMebliv(app);
 EVACarpet(app);
 CreationNakidki(app);
+EditAdmin(app);
 
 
 

@@ -1,26 +1,58 @@
-.headercontent{
-    flex-direction: row;
-    justify-content: center;
-    margin-left: 30px;
-    margin-top: 40px;
-    text-decoration: none;
-    color: black;
-    font-size: 20px;   
+@font-face {
+    font-family: 'Clear Sans';
+    src: url('/fonts/ClearSans-Regular.woff2') format('woff2'),
+         url('/fonts/ClearSans-Regular.woff') format('woff'),
+         url('/fonts/ClearSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
-#aboutUsLink{
-    width: 100px;
-}
-header{
+
+header {
     background-color: #e0e3e3;
     height: 100px;
     display: flex;
+    align-items: center; /* Центруємо по вертикалі */
+    padding: 0 20px; /* Відступи зліва та справа */
 }
-#MajorLogoHeader{
-    margin-left: 20px;
-    margin-right: 7%;
+
+#aboutUsLink{
+    width: 90px;
 }
-#mainLink{
-    margin-left: 50%;
+
+
+.nav-links {
+    margin-left: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Центруємо посилання по горизонталі */
+    gap: 30px;
+}
+
+.headercontent {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-family: 'Clear Sans', sans-serif;
+}
+
+@media (max-width: 1100px) {
+    .nav-links {
+        margin-left: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Центруємо посилання по горизонталі */
+        gap: 30px;
+    }
+}
+
+@media (max-width: 840px) {
+    .nav-links {
+        margin-left: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center; /* Центруємо посилання по горизонталі */
+        gap: 30px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -28,21 +60,18 @@ header{
         flex-direction: column;
         align-items: center;
         text-align: center;
-        height: 520px;
-    }
-    .headercontent{
-        margin-left: 0;
-    }
-    #mainLink {
-        margin-top: 15px;
-        margin-left: 0;
+        height: auto;
+        padding: 20px;
     }
 
-    header a {
-        margin: 10px 0; /* Вертикальний відступ між посиланнями */
-    }
-
-    header img {
+    #MajorLogoHeader {
         margin-bottom: 15px;
     }
+
+    .nav-links {
+        flex-direction: column; /* Посилання в колонку */
+        gap: 10px; /* Вертикальний відступ між посиланнями */
+        margin-left: 0; /* Прибираємо відступ для мобільних */
+    }
 }
+

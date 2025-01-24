@@ -6,6 +6,7 @@ const { ObjectId } = require('mongodb');
 const crypto = require('crypto');
 const fs = require('fs');
 
+
 const storage = multer.memoryStorage(); // Зберігає файл у пам'яті
 const upload = multer({ storage });
 
@@ -86,23 +87,39 @@ async function Admin(app) {
         res.render('edit'); // Без розширення файлу
     });
 
-    // Маршрут для отримання фото по категорії
     app.get('/admin/edit/photos', async (req, res) => {
         const { category } = req.query;
-
+    
         if (!category) {
             return res.status(400).send({ success: false, message: 'Категорія не вказана' });
         }
-
+    
         try {
             const collection = db.collection(category);
+            
+            // Отримуємо всі фото для вказаної категорії
             const photos = await collection.find().toArray();
-            res.json(photos);
+    
+            if (!photos || photos.length === 0) {
+                return res.json([]); // Повертаємо порожній масив, якщо фото немає
+            }
+    
+            // Формуємо масив зображень у форматі Base64
+            const photosWithBase64 = photos.map(photo => ({
+                _id: photo._id,
+                base64Image: `data:image/jpeg;base64,${photo.buffer.toString('base64')}`, // або 'image/png'
+            }));
+    
+            res.json(photosWithBase64); // Повертаємо масив фото
         } catch (error) {
             console.error('Помилка при отриманні фото:', error);
             res.status(500).send({ success: false, message: 'Помилка сервера' });
         }
     });
+    
+    
+    
+
 
     // Маршрут для додавання фото
     app.post('/admin/edit/add-photo', upload.single('photo'), async (req, res) => {
@@ -152,31 +169,26 @@ async function Admin(app) {
     // Маршрут для видалення фото
     app.post('/admin/edit/delete-photo', async (req, res) => {
         const { category, photoId } = req.body;
-    
+
         if (!req.session.isAuthenticated) {
-            return res.status(401).send(`<script>alert('Авторизуйтеся для доступу'); window.location.href='/admin';</script>`);
+            return res.status(401).send('Авторизуйтеся');
         }
-    
-        if (!category || !photoId) {
-            return res.status(400).send(`<script>alert('Категорія та ID фото повинні бути вказані'); window.location.href='/admin/edit';</script>`);
-        }
-    
+
         try {
             const collection = db.collection(category);
-            const photo = await collection.findOne({ _id: new ObjectId(photoId) });
-    
-            if (!photo) {
-                return res.status(404).send(`<script>alert('Фото не знайдено'); window.location.href='/admin/edit';</script>`);
+            const result = await collection.deleteOne({ _id: new ObjectId(photoId) });
+
+            if (result.deletedCount === 0) {
+                return res.status(404).send('Фото не знайдено');
             }
-    
-            await collection.deleteOne({ _id: new ObjectId(photoId) });
-    
-            res.status(200).send(`<script>alert('Фото видалено успішно'); window.location.href='/admin/edit';</script>`);
+
+            res.send('Фото видалено');
         } catch (error) {
             console.error('Помилка при видаленні фото:', error);
-            res.status(500).send(`<script>alert('Помилка сервера'); window.location.href='/admin/edit';</script>`);
+            res.status(500).send('Помилка сервера');
         }
     });
 }
 
 module.exports = Admin;
+
