@@ -1,10 +1,39 @@
 <header>
-    <a id="MajorLogoHeader" href="/"><img width="100px" height="100px" src="/img/MajorLogo.png" alt="Major Logo"></a>
-    <div class="nav-links">
-        <a id="mainLink" class="headercontent" href="/">Головна</a>
-        <a class="headercontent" id="aboutUsLink" href="/#AboutUsText">Про нас</a>
-        <a class="headercontent" href="/#OurPoslugi">Послуги</a>
-        <a id="pricelink" class="headercontent" href="/prices">Ціни</a>
-        <a class="headercontent" href="#footer">Контакти</a>
-    </div>
+        <a id="MajorLogoHeader" href="/">
+            <img width="100px" height="100px" src="/img/MajorLogo.png" alt="Major Logo">
+        </a>
+        
+        <div class="nav-links">
+            <a id="mainLink" class="headercontent" href="/">Головна</a>
+            <a class="headercontent" id="aboutUsLink" href="/#AboutUsText">Про нас</a>
+            <a class="headercontent" id="servicesLink" href="/#OurPoslugi">Послуги</a>
+            <a id="pricelink" class="headercontent" href="/prices">Ціни</a>
+            <a class="headercontent" id="contactsLink" href="#footer">Контакти</a>
+        </div>
+    
+        <div class="language-buttons">
+            <button id="btn-uk" class="lang-btn">UA</button>
+            <button id="btn-en" class="lang-btn">EN</button>
+        </div>
+    <script>
+        let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.scrollY || document.documentElement.scrollTop;
+    
+        if (scrollTop > lastScrollTop) {
+            // Прокрутка вниз - ховаємо header
+            header.style.top = "-110px"; 
+        } else {
+            // Прокрутка вгору - показуємо header
+            header.style.top = "0";
+        }
+    
+        lastScrollTop = scrollTop;
+    });
+    
+    </script>
+    
 </header>
+

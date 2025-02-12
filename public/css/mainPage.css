@@ -27,6 +27,29 @@ body {
     text-align: center;
 }
 
+
+/* Стилі для анімації підстрибування при наведенні */
+.gallery-item img {
+    border-radius: 20px;
+    width: 350px;
+    height: 340px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out; /* Додаємо плавний перехід */
+}
+
+/* Анімація підстрибування при наведенні */
+.gallery-item:hover img {
+    transform: translateY(-10px); /* Піднімаємо зображення на 10px */
+}
+
+.gallery-item p {
+    color: #ffffff;
+    margin-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+
 /* Стиль для заголовка */
 #MajorName {
     font-size: 70px;

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/photoSlider.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/unifiedPattern.css">
+    <link rel="stylesheet" href="/css/modalWindow.css">
 
 </head>
 <body>
@@ -17,8 +18,21 @@
     </header>
 
      <div id="backphoto">
-        <p id="DivTitle">ПЕРЕТЯЖКА САЛОНУ</p>
-     </div>
+         <p id="DivTitle">ПЕРЕТЯЖКА САЛОНУ</p>
+        </div>
+        
+        <h3>НАШІ РОБОТИ</h3>
+        
+        <div id="slider">
+            <div id="loadingSpinner" class="spinner"></div> <!-- Спінер -->
+            <div id="photoGallery"></div> <!-- Сюди будуть додаватися фото -->
+       </div>
+
+       <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <img id="modalImage" class="modal-content">
+        </div>
+
 
      <div id="textDiv">
         <h3>Перетяжка салону та пошив салону</h2>
@@ -51,15 +65,14 @@
         </div>
      </div>
 
-     <div id="slider">
-        <h3>НАШІ РОБОТИ</h3>
-        <div id="photoGallery"></div> <!-- Сюди будуть додаватися фото -->
-    </div>
     
 
     <footer>
         <%- include('footer') %>
     </footer>
+    
+    <script src="/js/translate/translateHeader.js" defer></script>
+
 
     <script src="/js/photoloader.js"></script>
         <script>
