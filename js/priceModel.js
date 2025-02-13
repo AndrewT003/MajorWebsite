@@ -9,18 +9,19 @@ class PriceModel {
         return await this.collection.findOne({ category });
     }
 
-    async updatePriceByCategory(category, price) {
+    async updatePriceByCategory(category, price, currency) {
         return await this.collection.updateOne(
             { category },
-            { $set: { price, updatedAt: new Date() } },
+            { $set: { price: parseFloat(price), currency, updatedAt: new Date() } },
             { upsert: true }
         );
     }
 
-    async createCategoryWithPrice(category, price) {
+    async createCategoryWithPrice(category, price, currency) {
         return await this.collection.insertOne({
             category,
             price: parseFloat(price),
+            currency,
             createdAt: new Date(),
             updatedAt: new Date(),
         });
@@ -28,6 +29,11 @@ class PriceModel {
 
     async getAllPrices() {
         return await this.collection.find().toArray();
+    }
+
+    // Метод для видалення ціни за категорією
+    async deletePriceByCategory(category) {
+        return await this.collection.deleteOne({ category });
     }
 }
 

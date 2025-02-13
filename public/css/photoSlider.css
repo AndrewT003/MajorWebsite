@@ -10,7 +10,8 @@
     text-align: center; /* Центрування заголовка та фото */
     padding: 20px; /* Відступи всередині блоку */
     border-radius: 8px; /* Закруглені краї */
-    margin: 20px auto; /* Центрування блоку на сторінці */
+    margin-left: 10%;
+    margin-right: 10%;    
 }
 
 #slider h3 {
@@ -22,7 +23,7 @@
 
 #photoGallery {
     display: grid; /* Використовуємо CSS Grid для організації фото */
-    grid-template-columns: repeat(5, 1fr); /* 5 колонок однакової ширини */
+    grid-template-columns: repeat(3, 1fr); /* 5 колонок однакової ширини */
     gap: 15px; /* Відстань між фото */
 }
 

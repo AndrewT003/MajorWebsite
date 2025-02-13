@@ -3,11 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const translations = {
         "UA": {
             "mainLink": "Головна",
+            "NameOfRozdilOurWorks":"НАШІ РОБОТИ",
             "aboutUsLink": "Про нас",
             "servicesLink": "Послуги",
             "pricelink": "Ціни",
             "contactsLink": "Контакти",
             "MajorName": "АвтоМажор",
+            "DescriptionAutoMajorBackphotoDiv":"Ми надаємо послуги з якісного ремонту та перетяжки салонів автомеблів, маємо власне виробництво авточохлів та автонакидок",
             "CorName": "с Білогородка,вул Володимирівська-35 Б",
             "OurPoslugi": "НАШІ ПОСЛУГИ",
             "linkToPagePeretSalonu" :"ПЕРЕТЯЖКА САЛОНУ",
@@ -35,11 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         "EN": {
             "mainLink": "Home",
+            "NameOfRozdilOurWorks":"OUR WORKS",
             "aboutUsLink": "About Us",
             "servicesLink": "Services",
             "pricelink": "Prices",
             "contactsLink": "Contacts",
             "MajorName": "AutoMajor",
+            "DescriptionAutoMajorBackphotoDiv":"We provide high-quality car interior repair and upholstery services, and we have our own production of car seat covers and car throws",
             "CorName": "village of Bilogorodka, street Volodymyrivska-35 B",
             "OurPoslugi": "OUR SERVICES",
             "linkToPagePeretSalonu" :"INTERIOR UPHOLSTERY",

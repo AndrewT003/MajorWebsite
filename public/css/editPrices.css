@@ -15,6 +15,23 @@ body {
     background-color: #4C4C4C;
 }
 
+#deletePriceButtonAdmin{
+    padding: 0px;
+    background-color: red;
+    color: white; border: none; 
+    cursor: pointer;
+    width: 100px;
+    height: 20px;
+
+}
+#FormDeletingPricesAdmin{
+    width: 100px;
+    margin-right: 20px;
+    height: 10px;
+    padding-top: 0px;
+}
+
+
 #ExistPrice{
     text-align: center;
     margin-top: 50px;
@@ -112,6 +129,22 @@ ul li strong {
 
 /* Адаптивні стилі */
 @media (max-width: 768px) {
+    #deletePriceButtonAdmin{
+        padding: 0px;
+        background-color: red;
+        color: white; border: none; 
+        cursor: pointer;
+        width: 100px;
+        height: 20px;
+    
+    }
+    #FormDeletingPricesAdmin{
+        width: 100px;
+        margin-right: 20px;
+        height: 10px;
+        padding-top: 0px;
+    }
+
     ul li{
         margin: 10px;
     }
@@ -133,6 +166,21 @@ ul li strong {
 }
 
 @media (max-width: 480px) {
+    #deletePriceButtonAdmin{
+        padding: 0px;
+        background-color: red;
+        color: white; border: none; 
+        cursor: pointer;
+        width: 50px;
+        height: 20px;
+    
+    }
+    #FormDeletingPricesAdmin{
+        width: 50px;
+        margin-right: 20px;
+        height: 10px;
+        padding-top: 0px;
+    }
     ul li{
         margin: 10px;
     }
@@ -146,6 +194,10 @@ ul li strong {
 
     h2 {
         font-size: 18px;
+    }
+    #DivForPrice{
+        display: flex;
+        flex-direction: column;
     }
 
     form input, form button {

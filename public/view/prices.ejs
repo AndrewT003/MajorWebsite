@@ -13,14 +13,14 @@
         <%- include('header') %>
     </header>
 
-
     <div class="container">
         <h1>ЦІНИ НА ПОСЛУГИ</h1>
         <table>
             <thead>
                 <tr>
                     <th>Категорія</th>
-                    <th>Ціна (грн)</th>
+                    <th>Ціна</th>
+                    <th>Валюта</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,11 +29,12 @@
                         <tr>
                             <td><%= price.category %></td>
                             <td><%= price.price %></td>
+                            <td><%= price.currency %></td> <!-- Додаємо колонку для валюти -->
                         </tr>
                     <% }); %>
                 <% } else { %>
                     <tr>
-                        <td colspan="2" style="text-align: center;">Ціни відсутні</td>
+                        <td colspan="3" style="text-align: center;">Ціни відсутні</td> <!-- Збільшено colspan до 3 -->
                     </tr>
                 <% } %>
             </tbody>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +18,17 @@
         <h2>Створити нову категорію</h2>
         <label for="new-category">Категорія:</label>
         <input type="text" id="new-category" name="category" required>
+        
         <label for="new-price">Ціна:</label>
         <input type="number" id="new-price" name="price" step="0.01" required>
+        
+        <label for="new-currency">Валюта:</label>
+        <select id="new-currency" name="currency" required>
+            <option value="UAH">Грн</option>
+            <option value="USD">Долари</option>
+            <option value="EUR">Євро</option>
+        </select>
+        
         <button type="submit">Створити категорію</button>
     </form>
     
@@ -27,9 +36,24 @@
     <form action="/admin/edit/price" method="POST">
         <h2>Оновити ціну</h2>
         <label for="category">Категорія:</label>
-        <input type="text" id="category" name="category" required>
+        <!-- Випадаючий список для вибору категорії -->
+        <select id="category" name="category" required>
+            <option value="">Оберіть категорію</option>
+            <% prices.forEach(price => { %>
+                <option value="<%= price.category %>"><%= price.category %></option>
+            <% }) %>
+        </select>
+        
         <label for="price">Ціна:</label>
         <input type="number" id="price" name="price" step="0.01" required>
+        
+        <label for="currency">Валюта:</label>
+        <select id="currency" name="currency" required>
+            <option value="UAH">Грн</option>
+            <option value="USD">Долари</option>
+            <option value="EUR">Євро</option>
+        </select>
+        
         <button type="submit">Оновити ціну</button>
     </form>
     
@@ -38,23 +62,30 @@
     <div id="DivForPrice">
         <ul>
             <% prices.forEach(price => { %>
-                <li><strong><%= price.category %></strong>: <%= price.price %> грн</li>
-                <% }) %>
-            </ul>
+                <li>
+                    <strong><%= price.category %></strong>: <%= price.price %> <%= price.currency %>
+                    <!-- Кнопка для видалення -->
+                    <form id="FormDeletingPricesAdmin" action="/admin/edit/price/delete" method="POST">
+                        <input type="hidden" name="category" value="<%= price.category %>">
+                        <button id="deletePriceButtonAdmin" type="submit">Видалити</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
     </div>
-        <script>
-            // Відображення alert з повідомленням, якщо є параметр message у URL
-            window.addEventListener('DOMContentLoaded', () => {
-                const params = new URLSearchParams(window.location.search);
-                const message = params.get('message');
-                if (message) {
-                    alert(message);
-                    // Видалення параметра message з URL після відображення alert
-                    const newUrl = window.location.origin + window.location.pathname;
-                    window.history.replaceState({}, document.title, newUrl);
-                }
-            });
-        </script>
-    </body>
-    </html>
     
+    <script>
+        // Відображення alert з повідомленням, якщо є параметр message у URL
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const message = params.get('message');
+            if (message) {
+                alert(message);
+                // Видалення параметра message з URL після відображення alert
+                const newUrl = window.location.origin + window.location.pathname;
+                window.history.replaceState({}, document.title, newUrl);
+            }
+        });
+    </script>
+</body>
+</html>

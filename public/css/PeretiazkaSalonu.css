@@ -1,35 +1,8 @@
-#textDiv {
-    padding: 30px; /* Відступи для внутрішнього контенту */
-    margin: 0 auto; /* Центрування блоку по горизонталі */
-    max-width: 70%; /* Встановлено максимальну ширину 70% від екрану */
-    text-align: justify; /* Вирівнювання тексту по ширині */
-    line-height: 1.6; /* Міжрядковий інтервал для зручності читання */
-}
-
-#textExplainDiv {
-    background-color: #8a858570;
-    padding: 20px;
-    border-radius: 20px;
-    text-align: justify; /* Вирівнювання тексту в поясненнях */
-}
-
-h3 {
-    color: #333;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-}
-
-p {
-    color: #555;
-    font-size: 1rem;
-    margin-bottom: 15px;
-}
-
 
 #backphoto {
     background-size: cover;
     background-image: url(../img/MansoryBlure.png);
-    height: 690px;
+    height: 400px;
     margin: 0px;
     display: flex;
     justify-content: center;

@@ -1,7 +1,7 @@
 #backphoto {
     background-size: cover;
     background-image: url(../img/AutoSeatsBlure.png);
-    height: 690px;
+    height: 400px;
     margin: 0px;
     display: flex;
     justify-content: center;

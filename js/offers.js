@@ -34,7 +34,7 @@ function Peretiazka(app) {
     // Додаємо статичний доступ до папки uploads
     app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
-    app.get('/peretiazka', (req, res) => {
+    app.get('/INTERIOR_UPHOLSTERY', (req, res) => {
         res.render('PeretiazkaSalonu'); // Без розширення файлу
     });
     ShowPhoto(app);
@@ -44,7 +44,7 @@ function PeretiazkaKerma(app) {
     // Додаємо статичний доступ до папки uploads
     app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
-    app.get('/peretiazkaKerma', (req, res) => {
+    app.get('/STEERING_WHEEL_GEARSHIFT_HANDBRAKE_UPHOLSTERY', (req, res) => {
         res.render('PeretiazkaKerma'); // Без розширення файлу
     });
     ShowPhoto(app);
@@ -54,14 +54,14 @@ function PeretiazkaSteli(app) {
     // Додаємо статичний доступ до папки uploads
     app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
-    app.get('/peretiazkaSteli', (req, res) => {
+    app.get('/CEILING_PILLARS_SUN_VISORS_UPHOLSTERY', (req, res) => {
         res.render('PeretiazkaSteli'); // Без розширення файлу
     });
     ShowPhoto(app);
 }
 
 function DoorCarts(app) {
-    app.get('/peretiazkadoor', (req, res) => {
+    app.get('/DOOR_PANELS_UPHOLSTERY', (req, res) => {
         res.render('PeretiazkaDoors'); // Без розширення файлу
     });
     ShowPhoto(app);
@@ -69,7 +69,7 @@ function DoorCarts(app) {
 }
 
 function InstalChohli(app) {
-    app.get('/instalChohli', (req, res) => {
+    app.get('/INSTALLATION_OF_CAR_COVERS', (req, res) => {
         res.render('InstalChohli'); // Без розширення файлу
     });
     ShowPhoto(app);
@@ -77,7 +77,7 @@ function InstalChohli(app) {
 }
 
 function ChohliCreation(app) {
-    app.get('/chohliCreation', (req, res) => {
+    app.get('/MANUFACTURING_OF_CUSTOM_CAR_COVERS', (req, res) => {
         res.render('ChohliCreation'); // Без розширення файлу
     });
     ShowPhoto(app);
@@ -85,7 +85,7 @@ function ChohliCreation(app) {
 }
 
 function TransmitionPeretiazka(app) {
-    app.get('/transmitionPeretiazka', (req, res) => {
+    app.get('/GEAR_SHIFT_SELECTOR_UPHOLSTERY', (req, res) => {
         res.render('PeretiazkaKPP'); // Без розширення файлу
     });
     ShowPhoto(app);
@@ -93,7 +93,7 @@ function TransmitionPeretiazka(app) {
 }
 
 function RestavrationSeatsParalonu(app) {
-    app.get('/restavrationSeats', (req, res) => {
+    app.get('/SEAT_REPAIR_FOAM_RESTORATION', (req, res) => {
         res.render('RestavrationSeats'); // Без розширення файлу
     });
     ShowPhoto(app);
@@ -101,7 +101,7 @@ function RestavrationSeatsParalonu(app) {
 }
 
 function PeretiazkaPidlokitnikiv(app) {
-    app.get('/peretiazkaPidlokitnikiv', (req, res) => {
+    app.get('/UPHOLSTERY_OF_ARMRESTS_AND_OTHER_INTERIOR_ELEMENTS', (req, res) => {
         res.render('PeretiazkaPidlokitnikiv'); // Без розширення файлу
     });
     ShowPhoto(app);
@@ -109,7 +109,7 @@ function PeretiazkaPidlokitnikiv(app) {
 }
 
 function RestavrationMebliv(app) {
-    app.get('/restavrationMebliv', (req, res) => {
+    app.get('/FURNITURE_UPHOLSTERY', (req, res) => {
         res.render('RestavrationMebliv'); // Без розширення файлу
     });
     ShowPhoto(app);
@@ -117,7 +117,7 @@ function RestavrationMebliv(app) {
 }
 
 function EVACarpet(app) {
-    app.get('/EVAcarpet', (req, res) => {
+    app.get('/EVA_MATS_ORGANIZERS', (req, res) => {
         res.render('EVACarpet'); // Без розширення файлу
     });
     ShowPhoto(app);
@@ -125,7 +125,7 @@ function EVACarpet(app) {
 }
 
 function CreationNakidki(app) {
-    app.get('/creationNakidki', (req, res) => {
+    app.get('/MANUFACTURING_OF_CAR_COVERS', (req, res) => {
         res.render('CreationNakidki'); // Без розширення файлу
     });
     ShowPhoto(app);
