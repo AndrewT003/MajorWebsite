@@ -136,6 +136,9 @@ body {
 
 /* Стилі для малих екранів */
 @media (max-width: 768px) {
+    body{
+        padding-top: 180px;
+    }
     header {
         flex-direction: column;
         align-items: center;
