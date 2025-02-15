@@ -33,16 +33,18 @@ li{
 }
 
 #textDiv {
-    padding: 30px; /* Відступи для внутрішнього контенту */
+    margin-top: 20px;
+    background-image: url(../img/mainTextBackDiv.png);
+    background-size: cover;
     margin: 0 auto; /* Центрування блоку по горизонталі */
-    max-width: 70%; /* Встановлено максимальну ширину 70% від екрану */
     text-align: justify; /* Вирівнювання тексту по ширині */
     line-height: 1.6; /* Міжрядковий інтервал для зручності читання */
 }
 
 #textExplainDiv {
-    background-color: #2F4F4F;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: #586767c3;
     padding: 35px;
-    border-radius: 20px;
     text-align: justify; /* Вирівнювання тексту в поясненнях */
 }

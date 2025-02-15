@@ -6,13 +6,13 @@
 
 #slider {
     /* background-image: url(../img/BackBlureFone.png); */
-    background-color: #06232d;
     background-size: cover;
     text-align: center; /* Центрування заголовка та фото */
     padding: 20px; /* Відступи всередині блоку */
     border-radius: 8px; /* Закруглені краї */
     margin-left: 10%;
-    margin-right: 10%;    
+    margin-right: 10%;  
+    margin-bottom: 30px;  
 }
 
 #slider h3 {

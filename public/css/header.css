@@ -36,26 +36,44 @@ body {
     gap: 30px;
     flex-grow: 1; /* Дозволяє центрувати */
     text-align: center;
+    transition: max-height 0.5s ease-out; /* Плавна анімація висоти */
 }
 
-/* Кнопки мови */
-.language-buttons {
-    display: flex;
-    gap: 10px;
-}
-
+/* Стилі для кнопок мови */
 .lang-btn {
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
-    background-color: #f4f4f4;
+    background-color: transparent; /* Прозорий фон */
+    color: black; /* Колір тексту */
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 16px; /* Розмір шрифту */
+    position: relative;
+    transition: color 0.3s ease, border-color 0.3s ease; /* Плавна анімація кольору та рамки */
 }
 
-.lang-btn:hover {
-    background-color: #ddd;
+/* Підкреслення при наведенні */
+.lang-btn::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease-in-out;
 }
+
+/* Зміна кольору тексту при наведенні */
+.lang-btn:hover {
+    color: #333; /* Темніший колір тексту при наведенні */
+}
+
+/* Розкриття підкреслення при наведенні */
+.lang-btn:hover::after {
+    width: 100%; /* Підкреслення на всю ширину */
+}
+
 
 /* Посилання */
 .headercontent {
@@ -82,11 +100,42 @@ body {
     width: 100%;
 }
 
-/* 📱Адаптація для мобільних */
-@media (max-width: 768px) {
-    body {
-        padding-top: 320px; /* Додаємо відступ рівний висоті header */
+/* Стилі для кнопки меню */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Клас, який відкриває меню */
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 300px; /* Встановлюємо максимальну висоту при розгортанні */
+}
+
+/* Стилі для великих екранів */
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        max-height: none; /* Відміняємо висоту для великих екранів */
     }
+
+    .menu-toggle {
+        display: none; /* Ховаємо кнопку меню на великих екранах */
+    }
+}
+
+/* Стилі для малих екранів */
+@media (max-width: 768px) {
     header {
         flex-direction: column;
         align-items: center;
@@ -95,11 +144,40 @@ body {
     }
 
     .nav-links {
+        display: flex;
         flex-direction: column;
         gap: 10px;
+        width: 100%;
+        text-align: center;
+        max-height: 0; /* Початкове значення висоти 0 */
+        overflow: hidden; /* Залишає контент прихованим */
+        transition: max-height 0.5s ease-out; /* Плавна анімація висоти */
     }
 
     .language-buttons {
         margin-top: 10px;
+    }
+
+    /* Відображаємо кнопку меню на мобільних */
+    .menu-toggle {
+        display: block;
+        color: black;
+        font-size: 30px;
+        background-color: transparent;
+        border: none;
+    }
+
+    /* Після відкриття меню: посилання в колонку */
+    .nav-links.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-height: 300px; /* Встановлюємо максимальну висоту при розгортанні */
+    }
+
+    /* Змінюємо логотип на менший для мобільних екранів */
+    #MajorLogoHeader img {
+        width: 80px;
+        height: 80px;
     }
 }

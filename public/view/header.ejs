@@ -15,6 +15,17 @@
         <button id="btn-uk" class="lang-btn">UA</button>
         <button id="btn-en" class="lang-btn">EN</button>
     </div>
+    
+    <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+
+    <script>
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.querySelector(".nav-links");
+
+        menuToggle.addEventListener("click", () => {
+         navLinks.classList.toggle("active");
+        });
+    </script>
 
     <script>
 let lastScrollTop = 0;
