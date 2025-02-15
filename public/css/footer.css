@@ -8,53 +8,99 @@
 }
 footer {
     background-color: #e0e3e3;
-    height: 140px; /* Зробимо висоту адаптивною */
     display: flex;
-    justify-content: center; /* Центруємо елементи по горизонталі */
-    align-items: center; /* Вирівнюємо елементи по вертикалі */
-    flex-wrap: wrap; /* Дозволяємо обтікання елементів */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     font-size: 20px;
-}
-#telNum,#CorName{
-    color: black;
+    padding: 10px;
 }
 
-
-/* Відступи для елементів футера на великих екранах */
-#instaLogo, #faceBookLogo, #TikTokImg {
-    margin-right: 20px; /* Горизонтальний відступ між логотипами */
+/* Соцмережі */
+#socials {
+    margin-right: 20px;
+    display: flex;
+    gap: 20px;
 }
-#telDiv, #mapDiv {
+
+/* Телефон та адреса */
+#contactInfo {
+    display: flex;
+    gap: 20px;
+}
+
+/* Контейнер для телефону */
+#telDiv {
     display: flex;
     align-items: center;
-    text-align: left; /* Вирівнюємо текст ліворуч для телефонів і адреси */
-    margin-left: 20px; /* Відступ між логотипами та інформаційними блоками */
 }
 
-/* Відступи для зображень у інформаційних блоках */
+/* Контейнер для карти */
+#mapDiv {
+    display: flex;
+    align-items: center;
+}
+
+/* Відступи для іконок */
 #telImg, #mapImg {
-    margin-right: 20px; /* Відступ між картинкою та текстом */
+    margin-right: 10px;
 }
 
-/* Адаптивність для менших екранів */
+/* Адаптивність */
 @media (max-width: 768px) {
     footer {
-        padding-top: 10px;
-        flex-direction: column; /* Вертикальне розташування */
-        height: auto; /* Динамічна висота */
-        align-items: center; /* Центруємо елементи */
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
     }
 
-    /* Вертикальні відступи для елементів */
-    #instaLogo, #faceBookLogo, #TikTokImg {
-        margin-right: 0; /* Скасовуємо горизонтальні відступи на малих екранах */
-        margin-bottom: 15px; /* Вертикальний відступ між логотипами */
+    /* Соцмережі в один ряд */
+    #socials {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
     }
 
-    #telDiv, #mapDiv {
-        justify-content: center; /* Центруємо контент телефонів і мапи */
+    /* Телефон та карта в колонку */
+    #contactInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
-        margin-left: 0; /* Скасовуємо лівий відступ */
-        margin-top: 10px; /* Додаємо відступ між блоками */
+        gap: 10px;
+    }
+
+    /* Вирівнювання тексту */
+    #telDiv, #mapDiv {
+        justify-content: center;
+        text-align: center;
     }
 }
+
+#scrollToTop {
+    display: none; /* Спочатку приховано */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px; /* Розмір кнопки */
+    height: 60px;
+    background: none; /* Забираємо фон */
+    border: none; /* Видаляємо рамку */
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Задаємо розміри зображення */
+#scrollToTop img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Щоб зображення гарно вписувалось */
+}
+
+/* Відображаємо кнопку тільки на малих екранах (максимум 768px) */
+@media (max-width: 768px) {
+    #scrollToTop {
+        display: block;
+    }
+}
+
