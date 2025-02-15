@@ -15,6 +15,12 @@ footer {
     font-size: 20px;
     padding: 10px;
 }
+#CorName{
+    color: black;
+}
+#telNum{
+    color: black;
+}
 
 /* Соцмережі */
 #socials {
