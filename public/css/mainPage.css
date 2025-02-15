@@ -89,12 +89,16 @@ body {
 }
 
 @media (max-width: 480px) {
+
+    #DescriptionAutoMajorBackphotoDiv{
+        font-size: 15px;
+    }
     #backphoto {
         height: 300px; /* Зменшуємо висоту для смартфонів */
     }
 
     #MajorName {
-        font-size: 30px; /* Зменшуємо розмір тексту для маленьких екранів */
+        font-size: 45px; /* Зменшуємо розмір тексту для маленьких екранів */
         padding-top: 5%;
     }
 }

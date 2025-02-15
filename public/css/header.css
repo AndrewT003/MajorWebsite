@@ -8,14 +8,20 @@ header {
     display: flex;
     padding-right: 20px;
     align-items: center;
-    justify-content: space-between; /* Розподіляє контент по краях */
-    transition: top 0.3s ease-in-out;
+    justify-content: space-between;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     z-index: 1000;
 }
 
-body {
-    padding-top: 120px; /* Додаємо відступ рівний висоті header */
+header.hidden {
+    transform: translateY(-120px); /* Зсуваємо вгору */
+    opacity: 0; /* Зменшуємо прозорість */
 }
+
+body {
+    padding-top: 120px; /* Відступ для контенту */
+}
+
 /* Логотип */
 #MajorLogoHeader {
     display: flex;

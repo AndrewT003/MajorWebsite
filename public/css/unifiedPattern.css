@@ -51,12 +51,6 @@ body {
 }
 
 
-#DivTitle{
-    font-size: 70px;
-    color: #fcfcfc;
-    margin: 0;
-    padding: 0;
-}
 @media (min-width: 1200px) {
     #textDec{
         margin-left: 25%;
@@ -70,11 +64,6 @@ body {
     #textDec{
         margin-left: 15%;
     }
-
-    #DivTitle {
-        font-size: 50px; /* Зменшуємо розмір тексту */
-        padding-top: 15%; /* Зміщуємо текст */
-    }
 }
 
 @media (max-width: 768px) {
@@ -85,10 +74,6 @@ body {
         margin-left: 0px;
     }
 
-    #DivTitle {
-        font-size: 40px; /* Ще менший розмір тексту */
-        padding-top: 10%;
-    }
 }
 
 @media (max-width: 480px) {
@@ -100,10 +85,7 @@ body {
     #textDec{
         margin-left: 100px;
     }
-    #DivTitle {
-        font-size: 25px; /* Зменшуємо розмір тексту для маленьких екранів */
-        padding-top: 5%;
-    }
+
 }
 
 h3 {

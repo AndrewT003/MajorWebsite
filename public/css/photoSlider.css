@@ -5,7 +5,8 @@
 }
 
 #slider {
-    background-image: url(../img/BackBlureFone.png);
+    /* background-image: url(../img/BackBlureFone.png); */
+    background-color: #06232d;
     background-size: cover;
     text-align: center; /* Центрування заголовка та фото */
     padding: 20px; /* Відступи всередині блоку */

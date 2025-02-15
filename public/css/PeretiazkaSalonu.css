@@ -1,4 +1,3 @@
-
 #backphoto {
     background-size: cover;
     background-image: url(../img/MansoryBlure.png);
@@ -9,5 +8,37 @@
     align-items: center;
     text-align: center;
     
+}
+#BannerTextNmaeOfCategoryPeretiazkaSalonu{
+    font-size: 70px;
+    color: #fcfcfc;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 1200px) {
+
+
+    #BannerTextNmaeOfCategoryPeretiazkaSalonu {
+        font-size: 50px; /* Зменшуємо розмір тексту */
+        padding-top: 15%; /* Зміщуємо текст */
+    }
+}
+
+@media (max-width: 768px) {
+
+
+    #BannerTextNmaeOfCategoryPeretiazkaSalonu {
+        font-size: 40px; /* Ще менший розмір тексту */
+        padding-top: 10%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #BannerTextNmaeOfCategoryPeretiazkaSalonu {
+        font-size: 25px; /* Зменшуємо розмір тексту для маленьких екранів */
+        padding-top: 5%;
+    }
 }
 
