@@ -138,6 +138,9 @@ body {
 
 /* Стилі для великих екранів */
 @media (min-width: 769px) {
+    body{
+        padding-top: 112px;
+    }
     .nav-links {
         display: flex;
         align-items: center;
@@ -160,8 +163,11 @@ body {
 
 /* Стилі для малих екранів */
 @media (max-width: 768px) {
+    #NameOfWebSiteUnderMainLink{
+        margin-bottom: 0px;
+    }
     body{
-        padding-top: 162px;
+        padding-top: 142px;
     }
     header {
         flex-direction: column;
@@ -207,3 +213,75 @@ body {
         height: 80px;
     }
 }
+
+/* Стилізація контейнера випадаючого меню */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Стилізація випадаючого меню */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 250px;
+    max-height: 300px; /* Встановлення максимальної висоти */
+    overflow-y: auto; /* Додаємо вертикальну прокрутку */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    right: 0; /* Прив'язка до правого краю */
+    border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* Стилізація посилань у випадаючому меню */
+.dropdown-content a {
+    display: block;
+    color: black; /* Початковий чорний текст */
+    padding: 10px 15px;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease-in-out; /* Плавна зміна кольору тексту */
+}
+
+/* Підкреслення анімацією */
+.dropdown-content a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(184, 22, 22);
+    transform: scaleX(0); /* Початковий стан: підкреслення невидиме */
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Зміна кольору тексту та поява підкреслення при наведенні */
+.dropdown-content a:hover {
+    color: rgb(184, 22, 22);
+}
+
+.dropdown-content a:hover::after {
+    transform: scaleX(1); /* Розширення підкреслення */
+}
+
+/* Показувати меню при наведенні (ЛИШЕ ДЛЯ ДЕСКТОПІВ) */
+@media (min-width: 768px) { 
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+}
+
+/* Вимкнення випадаючого меню на мобільних пристроях */
+@media (max-width: 767px) {
+    .dropdown-content {
+        display: none !important;
+    }
+}
+
+

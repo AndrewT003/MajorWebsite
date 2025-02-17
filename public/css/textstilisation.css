@@ -48,3 +48,17 @@ li{
     padding: 35px;
     text-align: justify; /* Вирівнювання тексту в поясненнях */
 }
+
+@media (max-width: 480px){
+    #textDiv{
+        background-image: url(../img/mainTextBackDivForLittleScreen.jpg);
+
+    }
+    #textExplainDiv {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    body{
+        padding-top: 145px;
+    }
+}

@@ -9,7 +9,24 @@
     <div class="nav-links">
         <a id="mainLink" class="headercontent" href="/">Головна</a>
         <a class="headercontent" id="aboutUsLink" href="/#AboutUsText">Про нас</a>
-        <a class="headercontent" id="servicesLink" href="/#OurPoslugi">Послуги</a>
+        <div class="dropdown">
+            <a class="headercontent" id="servicesLink" href="/#OurPoslugi">Послуги</a>
+            <div class="dropdown-content">
+                <a href="/INTERIOR_UPHOLSTERY">ПЕРЕТЯЖКА САЛОНУ</a>
+                <a href="/STEERING_WHEEL_UPHOLSTERY">ПЕРЕТЯЖКА КЕРМА</a>
+                <a href="/CEILING_PILLARS_SUN_VISORS_UPHOLSTERY">ПЕРЕТЯЖКА CТЕЛІ,СТІЙОК КОЗИРКІВ</a>
+                <a href="/DOOR_PANELS_UPHOLSTERY">ПЕРЕТЯЖКА ДВЕРНИХ КАРТ</a>
+                <a href="/INSTALLATION_OF_CAR_COVERS">ВСТАНОВЛЕННЯ АВТОЧОХЛІВ</a>
+                <a href="/MANUFACTURING_OF_CUSTOM_CAR_COVERS">ВИРОБНИЦТВО МОДЕЛЬНИХ АВТОЧОХЛІВ</a>
+                <a href="/GEAR_SHIFT_SELECTOR_UPHOLSTERY">ПЕРЕТЯЖКА СЕЛЕКТОРУ КПП</a>
+                <a href="/SEAT_REPAIR_FOAM_RESTORATION">РЕМОНТ СИДІНЬ РЕСТАВРАЦІЯ ПОРОЛОНУ</a>
+                <a href="/UPHOLSTERY_OF_ARMRESTS_AND_OTHER_INTERIOR_ELEMENTS">ПЕРЕТЯЖКА ПІДЛОКІТНИКІВ ТА ІНШИХ ЕЛЕМЕНТІВ САЛОНУ</a>
+                <a href="/FURNITURE_UPHOLSTERY">ПЕРЕТЯЖКА МЕБЛІВ</a>
+                <a href="/EVA_MATS_ORGANIZERS">EVA КИЛИМКИ,ОРГАНАЙЗЕРИ</a>
+                <a href="/MANUFACTURING_OF_CAR_COVERS">ВИРОБНИЦТВО АВТОНАКИДОК</a>
+
+            </div>
+        </div>
         <a id="pricelink" class="headercontent" href="/prices">Ціни</a>
         <a class="headercontent" id="contactsLink" href="#footer">Контакти</a>
     </div>
@@ -83,6 +100,35 @@ window.addEventListener('mousemove', (event) => {
 });
 
 
+
+    </script>
+    <script>
+        const dropdownContent = document.querySelector('.dropdown-content');
+
+const isMouseInsideHeaderOrDropdown = (event) => {
+    const headerRect = header.getBoundingClientRect();
+    const dropdownRect = dropdownContent.getBoundingClientRect();
+    
+    return (
+        (event.clientY >= headerRect.top && event.clientY <= headerRect.bottom) ||
+        (event.clientY >= dropdownRect.top && event.clientY <= dropdownRect.bottom &&
+        event.clientX >= dropdownRect.left && event.clientX <= dropdownRect.right)
+    );
+};
+
+window.addEventListener('mousemove', (event) => {
+    if (isMouseInsideHeaderOrDropdown(event) || event.clientY < 50) {
+        if (isHeaderHidden && !isHeaderVisibleByScroll) {
+            header.classList.remove('hidden');
+            isHeaderHidden = false;
+        }
+    } else if (!isHeaderVisibleByScroll) {
+        if (!isAtTop() && window.scrollY > 100 && !isHeaderHidden) {
+            header.classList.add('hidden');
+            isHeaderHidden = true;
+        }
+    }
+});
 
     </script>
 </header>

@@ -44,7 +44,7 @@ function PeretiazkaKerma(app) {
     // Додаємо статичний доступ до папки uploads
     app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
-    app.get('/STEERING_WHEEL_GEARSHIFT_HANDBRAKE_UPHOLSTERY', (req, res) => {
+    app.get('/STEERING_WHEEL_UPHOLSTERY', (req, res) => {
         res.render('PeretiazkaKerma'); // Без розширення файлу
     });
     ShowPhoto(app);
