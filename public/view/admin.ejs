@@ -31,10 +31,21 @@
             <input type="text" id="login" name="login" required><br><br>
             
             <label for="password">Пароль:</label>
-            <input type="password" id="password" name="password" required><br><br>
+            <div class="password-container">
+                <input type="password" id="password" name="password" required>
+                <a id="togglePasswordBtn" class="password-toggle"></a>
+            </div>
+            <br><br>
             
             <button type="submit">Увійти</button>
         </form>
     </div>
+    
+    <script>
+        document.getElementById("togglePasswordBtn").addEventListener("click", function () {
+            let passwordField = document.getElementById("password");
+            passwordField.type = passwordField.type === "password" ? "text" : "password";
+        });
+    </script>
 </body>
 </html>

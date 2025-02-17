@@ -6,6 +6,12 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+
+
 html {
     scroll-behavior: smooth;
 }
@@ -30,6 +36,12 @@ body {
 }
 
 #DescriptionAutoMajorBackphotoDiv{
+    font-family: 'Gentium Book Plus', serif;
+    color: white;
+    font-size: 20px;
+}
+#DescriptionAutoMajorBackphotoDiv2{
+    font-family: 'Gentium Book Plus', serif;
     color: white;
     font-size: 20px;
 }
@@ -59,6 +71,7 @@ body {
 
 /* Стиль для заголовка */
 #MajorName {
+    font-family: 'Gentium Book Plus', serif;
     font-size: 70px;
     color: #fcfcfc;
     margin: 0;
@@ -67,6 +80,7 @@ body {
 
 /* Адаптація для малих екранів */
 @media (max-width: 1200px) {
+    
     #backphoto {
         height: 500px; /* Зменшуємо висоту для середніх екранів */
     }
@@ -89,6 +103,9 @@ body {
 }
 
 @media (max-width: 480px) {
+    #DescriptionAutoMajorBackphotoDiv2{
+        font-size: 15px;
+    }
     .text_container{
         margin: 0;
         margin-top: 20px;

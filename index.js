@@ -43,6 +43,8 @@ app.use(
 app.use(express.static(path.join(__dirname, 'js')));
 
 
+
+
 mainPage(app);
 Peretiazka(app);
 DoorCarts(app);

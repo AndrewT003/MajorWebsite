@@ -23,8 +23,18 @@ body {
 
 /* Логотип */
 #MajorLogoHeader {
+    justify-content: center;
     display: flex;
     align-items: center;
+}
+.MainLogoOnHrader{
+    display: flex;
+    flex-direction: column;
+}
+#NameOfWebSiteUnderMainLink{
+    color: black;
+    margin-top: 0px;
+    font-size: 20px;
 }
 
 /* Навігація */
@@ -59,7 +69,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: black;
+    background-color: rgb(184, 22, 22);
     transition: width 0.3s ease-in-out;
 }
 
@@ -71,6 +81,11 @@ body {
 /* Розкриття підкреслення при наведенні */
 .lang-btn:hover::after {
     width: 100%; /* Підкреслення на всю ширину */
+}
+
+.headercontent:hover {
+    color: rgb(184, 22, 22); /* Колір при наведенні */
+    transition: color 0.3s ease-in-out;
 }
 
 
@@ -92,11 +107,12 @@ body {
     width: 0;
     height: 2px;
     background-color: black;
-    transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
 
 .headercontent:hover::after {
     width: 100%;
+    background-color: rgb(184, 22, 22); /* Колір підкреслення при наведенні */
 }
 
 /* Стилі для кнопки меню */
@@ -132,11 +148,18 @@ body {
         display: none; /* Ховаємо кнопку меню на великих екранах */
     }
 }
+@media (min-width: 769px) {
+
+
+    #NameOfWebSiteUnderMainLink {
+        display: none; /* Ховаємо на всіх екранах, окрім мобільних */
+    }
+}
 
 /* Стилі для малих екранів */
 @media (max-width: 768px) {
     body{
-        padding-top: 180px;
+        padding-top: 162px;
     }
     header {
         flex-direction: column;

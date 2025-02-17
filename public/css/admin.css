@@ -87,3 +87,38 @@ form button:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+
+/* Контейнер для поля пароля */
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 40px; /* Відступ для кнопки */
+}
+
+/* Прозора кнопка для перегляду пароля */
+#togglePasswordBtn {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    color: transparent; /* Робить текст кнопки невидимим */
+}
+
+#togglePasswordBtn::before {
+    content: "👁️"; /* Додає іконку ока */
+    font-size: 18px;
+    color: black; /* Колір іконки */
+}
+
+

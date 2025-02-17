@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "MajorName": "АвтоМажор",
             "DescriptionAutoMajorBackphotoDiv":"Ми надаємо послуги з якісного ремонту та перетяжки салонів автомеблів, маємо власне виробництво авточохлів та автонакидок",
             "CorName": "с Білогородка,вул Володимирська-35 Б",
+            "DescriptionAutoMajorBackphotoDiv2":"З однаковою майстерністю ми виконуємо також перетяжку меблів",
+
 
 
             /* unified word in differend ofers pages*/
@@ -389,6 +391,8 @@ document.addEventListener("DOMContentLoaded", function () {
             "contactsLink": "Contacts",
             "MajorName": "AutoMajor",
             "DescriptionAutoMajorBackphotoDiv":"We provide high-quality car interior repair and upholstery services, and we have our own production of car seat covers and car throws",
+            "DescriptionAutoMajorBackphotoDiv2":"With the same craftsmanship, we also perform furniture upholstery.",
+
             "CorName": "village of Bilogorodka, street Volodymyrska-35 B",
 
             /* unified word in differend ofers pages*/
