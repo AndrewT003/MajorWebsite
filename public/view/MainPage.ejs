@@ -25,61 +25,61 @@
     <p id="OurPoslugi">НАШІ ПОСЛУГИ</p>
     <div class="gallery-container">
 
-        <div class="gallery-item">
+        <div class="gallery-item hidden">
             <a href="/INTERIOR_UPHOLSTERY"><img width="479px" height="427px" src="/img/mansory.png" ></a>
             <p id="linkToPagePeretSalonu">ПЕРЕТЯЖКА САЛОНУ</p>
         </div>
 
-        <div class="gallery-item">
+        <div class="gallery-item hidden">
             <a href="/STEERING_WHEEL_UPHOLSTERY"><img width="479px" height="427px" src="/img/Skin.png" alt="Image 2"></a>
             <p id="linkToPagePeretiazkaWheel">ПЕРЕТЯЖКА КЕРМА</p>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item hidden">
             <a href="/CEILING_PILLARS_SUN_VISORS_UPHOLSTERY"><img width="479px" height="427px" src="/img/AutoRoofImg.png" alt="Image 3"></a>
             <p id="linkToPagePeretiazkaSteli">ПЕРЕТЯЖКА CТЕЛІ,СТІЙОК КОЗИРКІВ</p>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item hidden">
             <a href="/DOOR_PANELS_UPHOLSTERY"><img width="479px" height="427px" src="/img/DoorKartImg.png" alt="Image 4"></a> 
             <p id="LinkToPagePeretiazkaDoor">ПЕРЕТЯЖКА ДВЕРНИХ КАРТ</p>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item hidden">
             <a href="/INSTALLATION_OF_CAR_COVERS"><img width="479px" height="427px" src="/img/AutoSeats.png" alt="Image 5"></a>
             <p id="LinkToPageInstallChohli">ВСТАНОВЛЕННЯ АВТОЧОХЛІВ</p>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item hidden">
             <a href="/MANUFACTURING_OF_CUSTOM_CAR_COVERS"><img width="479px" height="427px" src="/img/Img.png" alt="Image 6"></a>
             <p id="LinkToPageCreationAutoChohli">ВИРОБНИЦТВО МОДЕЛЬНИХ АВТОЧОХЛІВ</p>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item hidden">
             <a href="/GEAR_SHIFT_SELECTOR_UPHOLSTERY"><img width="479px" height="427px" src="/img/ShiftGearImg.png" alt="Image 7"></a>
             <p id="LinkToPagePeretiazkaSelectoruKPP">ПЕРЕТЯЖКА СЕЛЕКТОРУ КПП</p>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item hidden">
             <a href="/SEAT_REPAIR_FOAM_RESTORATION"><img width="479px" height="427px" src="/img/restavraciya.png" alt="Image 8"></a>
             <p id="LinkToPageSeatsRepair">РЕМОНТ СИДІНЬ РЕСТАВРАЦІЯ ПОРОЛОНУ</p>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item hidden">
             <a href="/UPHOLSTERY_OF_ARMRESTS_AND_OTHER_INTERIOR_ELEMENTS"><img width="479px" height="427px" src="/img/UnderAnkle.png" alt="Image 9"></a>
             <p id="LinkToPagePeretiazkaPidlokitnikiv">ПЕРЕТЯЖКА ПІДЛОКІТНИКІВ ТА ІНШИХ ЕЛЕМЕНТІВ САЛОНУ</p>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item hidden">
             <a href="/FURNITURE_UPHOLSTERY"><img width="479px" height="427px" src="/img/peretiazhka.png" alt="Image 10"></a>
             <p id="LinkToPagePeretiazkaMebliv">ПЕРЕТЯЖКА МЕБЛІВ</p>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item hidden">
             <a href="/EVA_MATS_ORGANIZERS"><img width="479px" height="427px" src="/img/EVA.png" alt="Image 11"></a>
             <p id="LinkToPageEvaCarpets">EVA КИЛИМКИ,ОРГАНАЙЗЕРИ</p>
         </div>
-        <div class="gallery-item">
+        <div class="gallery-item hidden">
             <a href="/MANUFACTURING_OF_CAR_COVERS"><img width="479px" height="427px" src="/img/nakidki.png" alt="Image 12"></a>
             <p id="LinkToPageCreationAutonakidki">ВИРОБНИЦТВО АВТОНАКИДОК</p>
         </div>
     </div>
 
-    <div id="infoDiv">
-        <p class="about_text" id="AboutUsText">ПРО НАС</p>
+    <div class="hidden" id="infoDiv">
+        <p class="about_text " id="AboutUsText">ПРО НАС</p>
         <div class="text_container">
-            <p id="aboutUsTextDivFirstDiv">Автоательє АвтоМажор – це команда професіоналів ,яка тривалий час займається наданням послуг з
+            <p id="aboutUsTextDivFirstDiv hidden">Автоательє АвтоМажор – це команда професіоналів ,яка тривалий час займається наданням послуг з
                 якісного ремонту та перетяжки салонів автомобілів  та перетяжкою меблів.
                 За роки своєї діяльності ми досягли високого професіоналізму у
                 своїй сфері і завоювали довіру клієнтів не лише з Києва, а й з усієї території України.</p>
@@ -96,10 +96,13 @@
                 ,задати питання або дізнатися про появу новинок продукції. Ми завжди раді допомогти!</p>
         </div>
     </div>
+    <div>
+        <%- include('contact') %>
+    </div>
     <footer>
         <%- include('footer') %>
     </footer>
-    
+    <script src="js/apear.js"></script>
     <script src="/index.js"></script>
 </body>
 </html>

@@ -52,8 +52,24 @@ footer {
     margin-right: 10px;
 }
 
+/* Стилі для анімації підстрибування */
+footer a {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+footer a:hover {
+    transform: translateY(-5px); /* Піднімаємо елемент на 5px */
+}
+
+
+
+
 /* Адаптивність */
 @media (max-width: 768px) {
+    #CorName{
+        width: 250px;
+    }
     footer {
         flex-direction: column;
         height: auto;

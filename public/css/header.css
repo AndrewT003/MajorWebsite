@@ -164,7 +164,8 @@ body {
 /* Стилі для малих екранів */
 @media (max-width: 768px) {
     #NameOfWebSiteUnderMainLink{
-        margin-bottom: 0px;
+        margin-bottom: 5px;
+        font-size: 28px;
     }
     body{
         padding-top: 142px;
@@ -230,7 +231,8 @@ body {
     overflow-y: auto; /* Додаємо вертикальну прокрутку */
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1000;
-    right: 0; /* Прив'язка до правого краю */
+    left: 50%; /* Вирівнюємо відносно центру */
+    transform: translateX(-50%); /* Зсуваємо назад на половину ширини */
     border-radius: 5px;
 }
 

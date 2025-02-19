@@ -204,6 +204,12 @@ h1{
     background-size: cover;
     
 }
+@media (max-width: 1285px) {
+    #infoDiv{
+        background-image: url(../img/mainTextBackDivForLittleScreen.jpg);
+    }
+
+}
 
 .about_text {
 
@@ -243,6 +249,13 @@ h1{
 
 /* Адаптація для маленьких екранів (мобільні пристрої) */
 @media (max-width: 480px) {
+    .text_container{
+       margin: 10px;
+    }
+    #infoDiv{
+        background-image: url(../img/mainTextBackDivForLittleScreen.jpg);
+    }
+
     .text {
         max-width: 100%;
         margin: 10px 0;
@@ -252,3 +265,18 @@ h1{
         font-size: 28px;
     }
 }
+
+
+/* Початковий стан - приховані елементи */
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Коли елемент стає видимим */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+

@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
+const mailService = require("./js/mailService"); // Імпортуємо функцію для обробки email
 
 
 const mainPage = require('./js/mainPage');
@@ -61,6 +62,8 @@ RestavrationMebliv(app);
 EVACarpet(app);
 CreationNakidki(app);
 EditAdmin(app);
+mailService(app);
+
 
 
 
