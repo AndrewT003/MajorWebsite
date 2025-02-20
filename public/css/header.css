@@ -74,6 +74,16 @@ body {
     background-color: rgb(184, 22, 22);
     transition: width 0.3s ease-in-out;
 }
+@media (max-width: 900px) {
+    #telNumInHeader{
+        padding-right: 10px;
+    }
+}
+#telNumInHeader{
+   margin-right: 50px;
+    text-decoration: none;
+
+}
 
 /* Зміна кольору тексту при наведенні */
 .lang-btn:hover {
@@ -138,6 +148,10 @@ body {
 
 /* Стилі для великих екранів */
 @media (min-width: 769px) {
+    #MajorLogoHeader{
+        margin-left: 40px;
+
+    }
     body{
         padding-top: 112px;
     }
@@ -285,5 +299,71 @@ body {
         display: none !important;
     }
 }
+
+/* Стилі для екранів від 900px до 780px */
+@media (max-width: 950px) and (min-width: 769px) {
+    header {
+        flex-direction: column; /* Переміщаємо елементи в колонку */
+        align-items: center;
+        height: auto;
+    }
+    #NameOfWebSiteUnderMainLink{
+        margin-bottom: 5px;
+        font-size: 28px;
+    }
+
+    #MajorLogoHeader {
+        display: flex;
+        justify-content: center; /* Центруємо логотип */
+        align-items: center;
+        margin-left: 0; /* Забираємо лівий відступ */
+    }
+
+    #NameOfWebSiteUnderMainLink {
+        display: block; /* Показуємо назву на екранах між 780px і 900px */
+        font-family: 'Gentium Book Plus', serif;
+        color: black;
+        margin-top: 0px;
+        text-align: center; /* Центруємо назву */
+    }
+
+    #MajorLogoHeader img {
+        width: 80px; /* Зменшуємо розмір лого для цих екранів */
+        height: 80px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        text-align: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+    }
+
+    .language-buttons {
+        margin-top: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+        color: black;
+        font-size: 30px;
+        background-color: transparent;
+        border: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-height: 300px;
+    }
+}
+
+
+
 
 

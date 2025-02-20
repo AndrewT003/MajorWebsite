@@ -9,7 +9,10 @@ async function loadPhotos(category) {
         photoGallery.innerHTML = '';
 
         const response = await fetch(`/api/photos/${category}`);
-        const photos = await response.json();
+        let photos = await response.json();
+
+        // Сортуємо за полем order, якщо воно є
+        photos.sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
 
         photos.forEach(photo => {
             const img = document.createElement('img');
@@ -27,6 +30,7 @@ async function loadPhotos(category) {
         slider.classList.remove('loading');
     }
 }
+
 
 // Додаємо обробники подій після завантаження сторінки
 document.addEventListener('DOMContentLoaded', () => {

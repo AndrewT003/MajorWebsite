@@ -40,6 +40,7 @@ input{
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
+    z-index: 1000; /* Завжди поверх усього контенту */
 }
 
 /* Контент форми */
@@ -49,6 +50,7 @@ input{
     border-radius: 8px;
     width: 300px;
     text-align: center;
+    position: relative; /* Щоб кнопка закриття не зміщувалася */
 }
 
 /* Кнопка закриття (X) */
@@ -87,5 +89,30 @@ button#closeFormBtn {
     color: black;
 }
 #FeedbackH2Lable{
+    margin-bottom: 0px;
     color: black;
 }
+textarea {
+    min-height: 20px; /* Мінімальна висота */
+    max-height: 150px; /* Максимальна висота, щоб не ставало занадто великим */
+    overflow-y: hidden; /* Ховаємо вертикальний скрол */
+    resize: none; /* Забороняємо ручне зміщення */
+    text-align: center;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+    padding: 5px;
+    font-size: 16px;
+}
+/* Поле питання */
+#question {
+    min-height: 40px; /* Мінімальна висота */
+    max-height: 150px; /* Максимальна висота */
+    overflow-y: auto; /* Прокручування при перевищенні висоти */
+    text-align: left; /* Текст вирівняний зліва */
+}
+
+
+
+
+

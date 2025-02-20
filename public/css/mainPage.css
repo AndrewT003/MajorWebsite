@@ -27,7 +27,7 @@ body {
     flex-direction: column;
     background-size: cover;
     background-image: url(../img/MInterior.png);
-    height: 430px;
+    height: 380px;
     margin: 0px;
     display: flex;
     justify-content: center;
@@ -82,12 +82,12 @@ body {
 @media (max-width: 1200px) {
     
     #backphoto {
-        height: 500px; /* Зменшуємо висоту для середніх екранів */
+        height: 400px; /* Зменшуємо висоту для середніх екранів */
     }
 
     #MajorName {
         font-size: 50px; /* Зменшуємо розмір тексту */
-        padding-top: 15%; /* Зміщуємо текст */
+        padding-top: 3%; /* Зміщуємо текст */
     }
 }
 

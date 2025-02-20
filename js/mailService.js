@@ -1,10 +1,9 @@
-// mailService.js
 require("dotenv").config();
 const nodemailer = require("nodemailer");
 
 module.exports = function (app) {
     // Функція для відправки email
-    async function sendEmail(name, email, phone) {
+    async function sendEmail(name, email, phone, question) {
         let transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
@@ -17,7 +16,7 @@ module.exports = function (app) {
             from: process.env.EMAIL_USER,
             to: "kaktus12ta@gmail.com", // Можна додати логіку для перевірки email-адреси
             subject: "Нове повідомлення з сайту",
-            text: `Ім'я: ${name}\nEmail: ${email}\nТелефон: ${phone}`,
+            text: `Ім'я: ${name}\nEmail: ${email}\nТелефон: ${phone}\nПитання: ${question || "Не вказано"}`,
         };
 
         try {
@@ -28,11 +27,11 @@ module.exports = function (app) {
     }
 
     // Загальна функція для обробки email та відповіді
-    async function handleEmail(req, res, page) {
-        const { name, email, phone } = req.body;
+    async function handleEmail(req, res) {
+        const { name, email, phone, question } = req.body;
 
         try {
-            await sendEmail(name, email, phone);
+            await sendEmail(name, email, phone, question);
             if (!res.headersSent) {
                 res.status(200).json({ message: "Повідомлення надіслано успішно! Скоро наш адміністратор зв'яжеться з вами" });
             }
@@ -54,6 +53,6 @@ module.exports = function (app) {
     }
 
     app.post("/send-email", async (req, res) => {
-        handleEmail(req, res, "/"); // редирект на сторінку контактів
+        handleEmail(req, res);
     });
 };
