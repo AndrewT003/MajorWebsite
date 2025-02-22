@@ -4,7 +4,7 @@ const connectToDatabase = require('./database');
 function ChangeOrderImg(app) {
     // Сторінка редагування фото
     app.get('/admin/edit/photo', (req, res) => {
-        res.render('changeorderImg');
+        res.render('changeOrderIMG');
     });
 
     // Отримати фото за категорією
