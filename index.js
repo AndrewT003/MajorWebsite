@@ -52,6 +52,10 @@ app.get('/admin/edit/photo', isAuthenticated, (req, res) => {
     res.render('orderImg');
 });
 
+
+
+
+
 ChangeOrderImg(app);
 mainPage(app);
 Peretiazka(app);
@@ -70,6 +74,34 @@ EVACarpet(app);
 CreationNakidki(app);
 EditAdmin(app);
 mailService(app);
+
+
+
+
+// Список прихованих маршрутів адміністратора
+const hiddenAdminRoutes = new Set([
+    '/admin',
+]);
+
+
+
+// Middleware для обробки неправильних маршрутів
+app.use((req, res, next) => {
+    const registeredRoutes = app._router.stack
+        .filter(layer => layer.route)
+        .map(layer => layer.route.path);
+
+    if (registeredRoutes.includes(req.path) || hiddenAdminRoutes.has(req.path)) {
+        return next();
+    }
+
+    res.redirect('/404'); // Переадресація на сторінку помилки
+});
+
+// Сторінка 404
+app.get('/404', (req, res) => {
+    res.render('error');
+});
 
 
 

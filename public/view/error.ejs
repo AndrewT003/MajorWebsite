@@ -1,15 +1,14 @@
 <!-- errorPage.html -->
 <html>
   <head>
-    <title>Помилка 404</title>
+    <link rel="icon" href="../img/errorIco.png" type="image/x-icon">
+    <title>Помилка 404(Сторінки не існує)</title>
+    <link rel="stylesheet" href="/css/error.css">
   </head>
   <body>
-    <h1>Помилка 404: Маршрут не знайдено</h1>
-    <p>Цей маршрут не існує. Ви будете переадресовані на головну сторінку через 3 секунди.</p>
-    <script>
-      setTimeout(function() {
-        window.location.href = '/'; // Перенаправлення на головну через 3 секунди
-      }, 3000);
-    </script>
+    <img src="../img/errorIco.png" alt="errorIco" height="100px" width="100px">
+    <h1>Упс щось пішло не так</h1>
+    <h1>Схоже сторінку яку ви хочете знайти не існує</h1>
+    <h1><a href="/">Ось посилання на головну сторінку</a></h1>
   </body>
 </html>
