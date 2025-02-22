@@ -30,7 +30,7 @@ input{
 }
 
 /* Модальне вікно */
-.modal {
+.modalWndwForContact {
     display: none;
     position: fixed;
     left: 0;
@@ -44,7 +44,7 @@ input{
 }
 
 /* Контент форми */
-.modal-content {
+.modalWndwForContact-content {
     background: white;
     padding: 20px;
     border-radius: 8px;
@@ -86,7 +86,7 @@ button#closeFormBtn {
     background-color: white;
 }
 #responseMessage{
-    color: black;
+    color: rgb(43, 163, 53);
 }
 #FeedbackH2Lable{
     margin-bottom: 0px;

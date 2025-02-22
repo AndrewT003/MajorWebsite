@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.getElementById("modal");
+    const modal = document.getElementById("modalWndwForContact");
     const openFormBtn = document.getElementById("openFormBtn");
     const closeBtn = document.querySelector(".close");
     const closeFormBtn = document.getElementById("closeFormBtn");
