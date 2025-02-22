@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
-const url = 'mongodb+srv://AndrewT:0662869941ta@courseworkdb.k45ksmc.mongodb.net/';
-const dbName = 'MajorSite';
+const url = process.env.DB_URL;
+const dbName = process.env.DB_NAME;
 
 let dbInstance = null;
 
