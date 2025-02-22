@@ -8,7 +8,7 @@ function ChangeOrderImg(app) {
     });
 
     // Отримати фото за категорією
-    app.get('/admin/edit/photo', async (req, res) => {
+    app.get('/admin/edit/photos', async (req, res) => {
         const { category } = req.query;
         if (!category) {
             return res.status(400).json({ success: false, message: 'Категорія не вказана' });
@@ -28,7 +28,8 @@ function ChangeOrderImg(app) {
 
             res.json(photosWithBase64);
         } catch (error) {
-            console.error('Помилка при отриманні фото:', error);
+            console.error('Помилка при отриманні фото:', error.message);
+            console.error('Stack trace:', error.stack);
             res.status(500).json({ success: false, message: 'Помилка сервера' });
         }
     });
@@ -44,12 +45,16 @@ function ChangeOrderImg(app) {
             const database = await connectToDatabase(); // Отримуємо підключення до бази
             const collection = database.collection(category);
 
-            const bulkOps = orderedPhotos.map((photo, index) => ({
-                updateOne: {
-                    filter: { _id: new ObjectId(photo._id) },
-                    update: { $set: { order: index } }
-                }
-            }));
+            // Логування кожної операції оновлення
+            const bulkOps = orderedPhotos.map((photo, index) => {
+                console.log(`Updating photo with ID: ${photo._id}, new order: ${index}`);
+                return {
+                    updateOne: {
+                        filter: { _id: new ObjectId(photo._id) }, // Перевірка на ObjectId
+                        update: { $set: { order: index } }
+                    }
+                };
+            });
 
             if (bulkOps.length > 0) {
                 await collection.bulkWrite(bulkOps);
@@ -57,8 +62,9 @@ function ChangeOrderImg(app) {
 
             res.json({ success: true, message: 'Порядок оновлено' });
         } catch (error) {
-            console.error('Помилка оновлення порядку:', error);
-            res.status(500).json({ success: false, message: 'Помилка сервера' });
+            console.error('Помилка оновлення порядку:', error.message);
+            console.error('Stack trace:', error.stack);
+            res.status(500).json({ success: false, message: 'Помилка сервера', error: error.message });
         }
     });
 }
