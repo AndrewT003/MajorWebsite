@@ -1,0 +1,18 @@
+#photosContainerForNewPhoto {
+     display: flex;
+     gap: 10px;
+     flex-wrap: wrap;
+}
+
+.sortable-item {
+    cursor: grab; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+}
+.photo-preview { 
+    width: 100px; 
+    height: auto; 
+}
+.dragging { 
+    opacity: 0.5; 
+}

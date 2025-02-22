@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редагування Фото</title>
+    <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/edit.css">
+    <link rel="stylesheet" href="/css/styleForChangeOrder.css">
+</head>
+<body>
+    <header>
+        <%- include('header') %>
+    </header>
+
+    <main>
+        <section class="photo-section">
+            <h2>Список фото по категорії</h2>
+            <form id="categoryForm">
+                <label for="photoCategory">Оберіть категорію:</label>
+                <select id="photoCategory" name="category">
+                    <option value="peretiazkaSalonu">Перетяжка салону</option>
+                    <option value="peretiazkaWheel">Перетяжка Керма</option>
+                    <option value="peretiazkaSteli">Перетяжка Стелі</option>
+                    <option value="DoorKarts">Перетяжка дверних карт</option>
+                    <option value="InstalChohli">Встановлення авточохлів</option>
+                    <option value="IndividualChoxli">Виробництво модельних авточохлів</option>
+                    <option value="TransmitionPeretiazka">Перетяжка КПП</option>
+                    <option value="RepairSeats">Ремонт сидінь</option>
+                    <option value="UnderAnkle">Перетяжка підлокітників</option>
+                    <option value="MablesReapair">Перетяжка меблів</option>
+                    <option value="EVAkarpets">EVA килимки</option>
+                    <option value="AvtoNakidki">Автонакидки</option>
+                </select>
+                <button type="button" id="loadPhotosForOrder">Показати фото</button>
+            </form>
+
+            <div id="photosContainerForNewPhoto"></div>
+            <button id="updateOrderButton" style="display:none;">Оновити порядок</button>
+        </section>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+
+    <script src="/js/scriptForChangeOrder.js"></script>
+</body>
+</html>
