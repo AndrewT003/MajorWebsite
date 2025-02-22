@@ -205,3 +205,9 @@ ul li strong {
         padding: 8px;
     }
 }
+@media (max-width: 480px) {
+
+    #category{
+        width: 140px;
+    }
+}

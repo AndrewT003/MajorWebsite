@@ -112,6 +112,14 @@ textarea {
     text-align: left; /* Текст вирівняний зліва */
 }
 
+@media (max-width: 480px) {
+
+    body{
+        padding-top: 160px;
+    }
+}
+
+
 
 
 

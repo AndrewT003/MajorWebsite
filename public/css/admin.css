@@ -120,5 +120,10 @@ form button:focus {
     font-size: 18px;
     color: black; /* Колір іконки */
 }
+@media (max-width: 480px) {
 
+    body{
+        padding-top: 120px;
+    }
+}
 

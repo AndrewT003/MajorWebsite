@@ -3,6 +3,7 @@ const session = require('express-session');
 const path = require('path');
 const mailService = require("./js/mailService"); // Імпортуємо функцію для обробки email
 
+
 const ChangeOrderImg = require("./js/changeFotoOrder");
 const mainPage = require('./js/mainPage');
 const { Peretiazka, DoorCarts, PeretiazkaKerma, PeretiazkaSteli, InstalChohli, ChohliCreation, TransmitionPeretiazka, RestavrationSeatsParalonu,
@@ -69,6 +70,8 @@ EVACarpet(app);
 CreationNakidki(app);
 EditAdmin(app);
 mailService(app);
+
+
 
 app.listen(PORT, () => {
     console.log(`Server start at port ${PORT}`);

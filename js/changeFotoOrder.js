@@ -8,7 +8,7 @@ function ChangeOrderImg(app) {
     });
 
     // Отримати фото за категорією
-    app.get('/admin/edit/photos', async (req, res) => {
+    app.get('/admin/edit/photo', async (req, res) => {
         const { category } = req.query;
         if (!category) {
             return res.status(400).json({ success: false, message: 'Категорія не вказана' });
