@@ -49,7 +49,7 @@ function isAuthenticated(req, res, next) {
 
 // Додаємо перевірку авторизації на маршрут редагування фото
 app.get('/admin/edit/photo', isAuthenticated, (req, res) => {
-    res.render('changeOrderImg');
+    res.render('orderImg');
 });
 
 ChangeOrderImg(app);
