@@ -3,10 +3,9 @@ const bcrypt = require('bcrypt');
 const connectToDatabase = require('./database');
 const multer = require('multer');
 const { ObjectId } = require('mongodb');
-const crypto = require('crypto');
-const fs = require('fs');
 const PriceModel = require('./priceModel');
 const PDFDocument = require('pdfkit');
+const fs = require('fs');
 
 async function EditAdmin(app) {
     const db = await connectToDatabase();
@@ -104,58 +103,92 @@ async function EditAdmin(app) {
         }
     });
 
-    // Маршрут для експортованої версії PDF
+    const PDFDocument = require('pdfkit');
+    const fs = require('fs');
+    
     app.get('/prices/export/pdf', async (req, res) => {
         try {
             const pricesCollection = db.collection('prices');
             const prices = await pricesCollection.find().toArray();
-
-            const doc = new PDFDocument();
-
-            // Визначаємо шлях до шрифту
+    
+            const doc = new PDFDocument({ size: 'A4', margins: { top: 50, bottom: 50, left: 50, right: 50 } });
+    
             const fontPath = path.join(__dirname, 'fonts', 'ClearSans-Regular.ttf');
-
-            // Перевіряємо, чи файл існує
-            if (!fs.existsSync(fontPath)) {
-                throw new Error(`Шрифт не знайдено за шляхом: ${fontPath}`);
-            }
-
-            // Підключаємо шрифт
+            if (!fs.existsSync(fontPath)) throw new Error(`Шрифт не знайдено: ${fontPath}`);
+    
+            const logoPath = path.join(__dirname, '../public/img', 'MajorLogo.png');
+            if (!fs.existsSync(logoPath)) throw new Error(`Логотип не знайдено: ${logoPath}`);
+    
             doc.font(fontPath);
-
+    
             const fileName = 'prices.pdf';
             const filePath = path.join(__dirname, fileName);
-
             const writeStream = fs.createWriteStream(filePath);
             doc.pipe(writeStream);
-
-            // Додаємо заголовок
-            doc.fontSize(20).text('Ціни на послуги', { align: 'center' });
-            doc.moveDown(2);
-
-            // Малюємо таблицю
-            const tableTop = 100;
-            const itemSpacing = 25;
-            const startX = 50;
-            const columnWidth = 250;
-
-            // Малюємо заголовок таблиці
-            doc.fontSize(12).text('Категорія', startX, tableTop);
-            doc.text('Ціна', startX + columnWidth, tableTop);
-            doc.text('Валюта', startX + columnWidth * 2, tableTop);
-
-            let currentY = tableTop + itemSpacing;
-
-            // Виводимо кожен елемент ціни в таблицю
-            prices.forEach((price) => {
-                doc.text(price.category, startX, currentY);
-                doc.text(price.price.toString(), startX + columnWidth, currentY);
-                doc.text(price.currency, startX + columnWidth * 2, currentY);
-                currentY += itemSpacing;
+    
+            // Додаємо логотип
+            const pageWidth = doc.page.width;
+            const logoWidth = 120;
+            const logoHeight = 120;
+            const logoY = 0;
+            doc.image(logoPath, (pageWidth - logoWidth) / 2, logoY, { width: logoWidth, height: logoHeight }).moveDown(4);
+    
+            // Відступ після логотипа перед текстом
+            const textStartY = logoY + logoHeight + 120;
+    
+            // Додаємо текст "АвтоМажор" під логотипом
+            doc.fontSize(18).text('АвтоМажор', { align: 'center' }).moveDown(1);
+    
+            // Заголовок документа
+            doc.fontSize(16).text('Ціни на послуги', { align: 'center' }).moveDown(1);
+    
+            // Менший відступ до таблиці
+            doc.moveDown(0.5);
+    
+            // Ширина колонок (загальна ширина таблиці)
+            const colWidth = [240, 80, 80];
+            const tableWidth = colWidth.reduce((acc, w) => acc + w, 0);
+    
+            // Визначаємо X-координату для центрування таблиці
+            const startX = (pageWidth - tableWidth) / 2;
+    
+            // Початкова Y-координата
+            let currentY = doc.y;
+    
+            // Заголовок таблиці (фон)
+            doc.rect(startX, currentY, tableWidth, 30).fill('white').stroke();
+            doc.fillColor('black').fontSize(12)
+                .text('Категорія', startX + 5, currentY + 8, { width: colWidth[0] - 10, align: 'left' })
+                .text('Ціна', startX + colWidth[0] + 5, currentY + 8, { width: colWidth[1], align: 'center' })
+                .text('Валюта', startX + colWidth[0] + colWidth[1] + 5, currentY + 8, { width: colWidth[2], align: 'center' });
+    
+            currentY += 30;
+    
+            // Виводимо елементи таблиці
+            prices.forEach(price => {
+                const categoryText = price.category;
+                const priceText = price.price.toString();
+                const currencyText = price.currency;
+    
+                const categoryHeight = doc.heightOfString(categoryText, { width: colWidth[0] - 10 });
+                const rowHeightDynamic = Math.max(categoryHeight + 16, 30);
+    
+                if (currentY + rowHeightDynamic > doc.page.height - 50) {
+                    doc.addPage();
+                    currentY = 50;
+                }
+    
+                doc.rect(startX, currentY, tableWidth, rowHeightDynamic).stroke();
+    
+                doc.text(categoryText, startX + 5, currentY + 8, { width: colWidth[0] - 10 });
+                doc.text(priceText, startX + colWidth[0] + 5, currentY + 8, { width: colWidth[1], align: 'center' });
+                doc.text(currencyText, startX + colWidth[0] + colWidth[1] + 5, currentY + 8, { width: colWidth[2], align: 'center' });
+    
+                currentY += rowHeightDynamic;
             });
-
+    
             doc.end();
-
+    
             writeStream.on('finish', () => {
                 res.sendFile(filePath);
             });
@@ -164,6 +197,9 @@ async function EditAdmin(app) {
             res.status(500).send('Помилка генерації PDF');
         }
     });
+    
+    
+    
 }
 
 module.exports = EditAdmin;
