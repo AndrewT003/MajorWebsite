@@ -113,7 +113,7 @@ async function EditAdmin(app) {
     
             const doc = new PDFDocument({ size: 'A4', margins: { top: 50, bottom: 50, left: 50, right: 50 } });
     
-            const fontPath = path.join(__dirname, 'fonts', 'ClearSans-Regular.ttf');
+            const fontPath = path.join(__dirname, '../public/fonts', 'ClearSans-Regular.ttf');
             if (!fs.existsSync(fontPath)) throw new Error(`Шрифт не знайдено: ${fontPath}`);
     
             const logoPath = path.join(__dirname, '../public/img', 'MajorLogo.png');
