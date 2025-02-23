@@ -33,4 +33,22 @@
         </div>
     </div>
     <script src="/js/scriptForContact.js"></script>
+    <script>
+let lastScrollTopForbtn = window.pageYOffset || document.documentElement.scrollTop; // Ініціалізація початкової позиції скролу
+const formButton = document.getElementById("openFormBtn");
+
+window.addEventListener("scroll", function() {
+    let currentScrollForButton = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Показуємо кнопку, коли скролимо вгору
+    if (currentScrollForButton < lastScrollTopForbtn) {
+        formButton.classList.remove("hidden-contact"); // Показуємо кнопку
+    } else {
+        formButton.classList.add("hidden-contact"); // Приховуємо кнопку
+    }
+
+    lastScrollTopForbtn = currentScrollForButton; // Оновлюємо останню позицію скролу
+}, false);
+
+    </script>
 </div>
