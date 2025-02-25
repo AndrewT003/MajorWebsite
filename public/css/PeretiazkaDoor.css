@@ -21,7 +21,6 @@
 
     #BannerTextNmaeOfCategoryPeretiazkaDoorCarts {
         font-size: 50px; /* Зменшуємо розмір тексту */
-        padding-top: 15%; /* Зміщуємо текст */
     }
 }
 
@@ -30,7 +29,6 @@
 
     #BannerTextNmaeOfCategoryPeretiazkaDoorCarts {
         font-size: 40px; /* Ще менший розмір тексту */
-        padding-top: 10%;
     }
 }
 
@@ -38,6 +36,5 @@
 
     #BannerTextNmaeOfCategoryPeretiazkaDoorCarts {
         font-size: 25px; /* Зменшуємо розмір тексту для маленьких екранів */
-        padding-top: 5%;
     }
 }
