@@ -19,7 +19,7 @@ body {
     flex-direction: column;
     background-size: cover;
     background-image: url(../img/MInterior.png);
-    height: 380px;
+    height: 280px;
     margin: 0px;
     display: flex;
     justify-content: center;
@@ -45,12 +45,13 @@ body {
     width: 350px;
     height: 340px;
     object-fit: cover;
-    transition: transform 0.3s ease-in-out; /* Додаємо плавний перехід */
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Додаємо плавний перехід */
 }
 
-/* Анімація підстрибування при наведенні */
+/* Анімація підстрибування + затемнення при наведенні */
 .gallery-item:hover img {
     transform: translateY(-10px); /* Піднімаємо зображення на 10px */
+    filter: grayscale(70%); /* Робимо фото сірішим */
 }
 
 .gallery-item p {
@@ -117,11 +118,15 @@ body {
 .gallery-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 колонки, рівної ширини */
-    gap: 20px; /* Проміжок між елементами */
+    gap: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    
 }
 
 .gallery-item {
     text-align: center; /* Центрування тексту під картинкою */
+   
 }
 
 .gallery-item img {

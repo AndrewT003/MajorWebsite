@@ -1,7 +1,7 @@
 #backphoto {
     background-size: cover;
     background-image: url(../img/RestavraciaBlure.png);
-    height: 400px;
+    height: 230px;
     margin: 0px;
     display: flex;
     justify-content: center;

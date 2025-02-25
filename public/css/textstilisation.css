@@ -8,10 +8,12 @@
 }
 h1, h2 {
     color: white;
+    font-size: 30px;
 }
 p {
     color: white;
     margin: 10px 0;
+    font-size: 20px;
 }
 .highlight {
     font-weight: bold;
@@ -30,6 +32,7 @@ ul {
 }
 li{
     color: white;
+    font-size: 20px;
 }
 
 #textDiv {
