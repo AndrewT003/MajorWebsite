@@ -74,6 +74,7 @@ body {
     background-color: rgb(184, 22, 22);
     transition: width 0.3s ease-in-out;
 }
+
 @media (max-width: 900px) {
     #telNumInHeader{
         padding-right: 10px;
@@ -146,15 +147,14 @@ body {
     max-height: 300px; /* Встановлюємо максимальну висоту при розгортанні */
 }
 
+
 /* Стилі для великих екранів */
 @media (min-width: 769px) {
     #MajorLogoHeader{
         margin-left: 40px;
 
     }
-    body{
-        padding-top: 112px;
-    }
+   
     .nav-links {
         display: flex;
         align-items: center;
@@ -310,6 +310,9 @@ body {
     #NameOfWebSiteUnderMainLink{
         margin-bottom: 5px;
         font-size: 28px;
+    }
+    body{
+        padding-top: 175px;
     }
 
     #MajorLogoHeader {

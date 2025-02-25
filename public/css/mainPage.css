@@ -42,8 +42,8 @@ body {
 /* Стилі для анімації підстрибування при наведенні */
 .gallery-item img {
     border-radius: 20px;
-    width: 350px;
-    height: 340px;
+    width: 310px;
+    height: 300px;
     object-fit: cover;
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; /* Додаємо плавний перехід */
 }
