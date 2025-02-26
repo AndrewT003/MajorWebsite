@@ -131,6 +131,7 @@ body {
 }
 
 .gallery-item img {
+    margin-bottom: 10px;
     border-radius: 20px;
     width: 350px; /* Фіксована ширина */
     height: 340px; /* Фіксована висота */
@@ -276,5 +277,35 @@ h1{
 .show {
     opacity: 1;
     transform: translateY(0);
+}
+.linksUndreImgMainPage{
+    margin-top: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+/* Ефект підкреслення */
+.linksUndreImgMainPage::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: black;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.linksUndreImgMainPage:hover::after {
+    width: 100%;
+    background-color: rgb(184, 22, 22); /* Колір підкреслення при наведенні */
 }
 

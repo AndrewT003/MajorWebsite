@@ -285,6 +285,28 @@ body {
 .dropdown-content a:hover::after {
     transform: scaleX(1); /* Розширення підкреслення */
 }
+/* Стилізація скрол-бара */
+.dropdown-content::-webkit-scrollbar {
+    width: 8px; /* Тонший скролбар */
+}
+
+/* Тло (трек) скрол-бара */
+.dropdown-content::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Світло-сірий фон */
+    border-radius: 10px; /* Округлені краї */
+}
+
+/* Ползунок (thumb) скрол-бара */
+.dropdown-content::-webkit-scrollbar-thumb {
+    background: #888; /* Темніший колір */
+    border-radius: 10px; /* Округлені краї */
+}
+
+/* Зміна кольору при наведенні */
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 
 /* Показувати меню при наведенні (ЛИШЕ ДЛЯ ДЕСКТОПІВ) */
 @media (min-width: 768px) { 
