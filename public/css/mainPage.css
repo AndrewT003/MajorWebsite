@@ -116,6 +116,7 @@ body {
     }
 }
 .gallery-container {
+    align-items: baseline;
     justify-content: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 колонки, рівної ширини */
@@ -126,6 +127,10 @@ body {
 }
 
 .gallery-item {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center; /* Центрування тексту під картинкою */
    
 }
