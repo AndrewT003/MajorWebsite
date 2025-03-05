@@ -47,7 +47,6 @@ function ChangeOrderImg(app) {
 
             // Логування кожної операції оновлення
             const bulkOps = orderedPhotos.map((photo, index) => {
-                console.log(`Updating photo with ID: ${photo._id}, new order: ${index}`);
                 return {
                     updateOne: {
                         filter: { _id: new ObjectId(photo._id) }, // Перевірка на ObjectId
