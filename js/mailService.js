@@ -20,7 +20,7 @@ module.exports = function (app) {
 
         let mailOptions = {
             from: process.env.EMAIL_USER,
-            to: "kaktus12ta@gmail.com",
+            to: "automajor.cover@gmail.com",
             subject: "Нове повідомлення з сайту",
             text: `Ім'я: ${name}\nEmail: ${email}\nТелефон: ${phone}\nПитання: ${question || "Не вказано"}`,
         };
